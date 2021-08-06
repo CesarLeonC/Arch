@@ -7,7 +7,7 @@ ln -sf /usr/share/zoneinfo/America/Guayaquil /etc/localtime
 # Activar la zona horaria
 hwclock --systohc
 # Quitar marca de comentario de linea 177 "en_us.UTF-8 UTF-8"
-sed --in-place '177s/.//' /etc/locale.gen
+sed -i '177s/.//' /etc/locale.gen
 # Generar local
 locale-gen
 # Definir el lenguaje predeterminado
@@ -18,6 +18,9 @@ echo "master" >> /etc/hostname
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1 localhost" >> /etc/hosts
 echo "127.0.1.1 master.localdomain master" >> /etc/hosts
+
+pacman --noconfirm pacutils
+
 # Cambiar el pass de root
 echo root:passwd | chpasswd
 
