@@ -7,7 +7,7 @@ ln -sf /usr/share/zoneinfo/America/Guayaquil /etc/localtime
 # Activar la zona horaria
 hwclock --systohc
 # Quitar marca de comentario de linea 177 "en_us.UTF-8 UTF-8"
-sed --in-place '177s/.//' /etc/local-gen
+sed --in-place '177s/.//' /etc/locale.gen
 # Generar local
 locale-gen
 # Definir el lenguaje predeterminado
