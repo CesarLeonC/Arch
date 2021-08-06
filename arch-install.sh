@@ -22,14 +22,7 @@ echo "127.0.1.1 master.localdomain master" >> /etc/hosts
 echo root:passwd | chpasswd
 
 # Instalar todo
-pacman -S --noconfirm grub networkmanager network-manager-applet dialog / 
-	wpa_supplicant mtools dosfstools reflector base-devel linux-headers avahi / 
-	xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez /
-	bluez-utils cups hplip alsa-utils pulseaudio bash-completion openssh rsync /
-	acpi acpi_call tlp virt-manager dnsmasq qemu qemu-arch-extra edk2-ovmf /
-	bridge-utils vde2 openbsd-netcat iptables-nft ipset firewalld flatpak /
-	sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font os-prober /
-	broadcom-wl
+pacman -S --noconfirm grub networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pulseaudio bash-completion openssh rsync acpi acpi_call tlp virt-manager dnsmasq qemu qemu-arch-extra edk2-ovmf bridge-utils vde2 openbsd-netcat iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font os-prober broadcom-wl
 
 # Instalar grub dentro de BIOS/MBR
 grub-install --target=i386-pc /dev/sda
