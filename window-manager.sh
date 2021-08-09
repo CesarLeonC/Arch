@@ -24,7 +24,7 @@ main :: IO ()
 main = xmonad $ def
    {
    modMask    = myModMask,
-   terminal   = myTerminal,
+   terminal   = myTerminal
    }
 EOF
 
