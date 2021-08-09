@@ -23,8 +23,8 @@ myBorderWidth = 2
 main :: IO ()
 main = xmonad $ def
    {
-   modMask    = myModMask
-   terminal   = myTerminal
+   modMask    = myModMask,
+   terminal   = myTerminal,
    }
 EOF
 
