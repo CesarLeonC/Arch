@@ -1,5 +1,10 @@
+# Install new shell, customizations, emacs and others
+sudo pacman -S --noconfirm zsh wget
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+sudo chsh -s $(which zsh)
+
 # Include tap-to-click method on touchpads
-cat << EOF > /etc/X11/xorg.conf.d/30-touchpad.conf
+sudo cat << EOF > /etc/X11/xorg.conf.d/30-touchpad.conf
 Section "InputClass"
     Identifier "touchpad"
     Driver "libinput"
@@ -8,12 +13,7 @@ Section "InputClass"
 EndSection
 EOF
 
-# Install new shell, customizations, emacs and others
-sudo pacman -S zsh wget
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
-sud chsh -s $(which zsh)
-
-cat << EOF > /root/.zshrc
+sudo cat << EOF > /root/.zshrc
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="rkj-repos"
 DISABLE_UPDATE_PROMPT="true"
