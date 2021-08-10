@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#################################################
+#     Name: Cesar Leon C.
+#     Type: Shell Script
+#     Date: August, the 7th/ 2021
+#     Description: ARCH LINUX INSTALL USING
+#                  PERSONAL CONFIG
+#################################################
+
 # Activar comando del tiempo
 timedatectl set-ntp true
 # Definir zona horaria
