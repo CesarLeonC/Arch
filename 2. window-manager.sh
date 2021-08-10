@@ -24,17 +24,30 @@ cat << EOF > /home/cesar/.xmonad/xmonad.hs
 import XMonad
 import XMonad.Util.EZConfig
 import XMonad.Util.Ungrab
+import XMonad.Layout.Grid
+import Xmonad.Hooks.EwmhDesktops
+import XMonad.Hooks.DynamicLog
 
 myModMask     = mod4Mask
 myTerminal    = "alacritty"
 myBorderWidth = 2
+myLayoutHook  = grid ||| tiled ||| Mirror tiled ||| Full
+   where
+      grid    = Grid
+      tiled   = Tall nmaster delta ratio
+      nmaster = 1
+      ratio   = 1/2
+      delta   = 3/100
+
+myConfig      = def
+   {
+   modMask        = myModMask,
+   terminal       = myTerminal,
+   layoutHooks    = myLayoutHooks
+   }
 
 main :: IO ()
-main = xmonad $ def
-   {
-   modMask    = myModMask,
-   terminal   = myTerminal
-   }
+main = xmonad . ewmh =<< xmobar myConfig
 EOF
 
 sudo systemctl enable lightdm
