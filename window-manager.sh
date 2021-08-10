@@ -27,6 +27,7 @@ main = xmonad $ def
    terminal   = myTerminal
    }
 EOF
+
 sudo systemctl enable lightdm
 xmonad --recompile
-xmonad --restart
+sudo systemctl sart lightdm
