@@ -18,12 +18,7 @@ ZSH_THEME="rkj-repos"
 DISABLE_UPDATE_PROMPT="true"
 export UPDATE_ZSH_DAYS=13
 plugins=(git github)
-source $ZSH/oh-my-zsh.sh
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nano'
-fi
+source /home/cesar/.oh-my-zsh/oh-my-zsh.sh
 EOF
 
 # Changing default shell
