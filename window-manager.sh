@@ -30,4 +30,4 @@ EOF
 
 sudo systemctl enable lightdm
 xmonad --recompile
-sudo systemctl sart lightdm
+sudo systemctl start lightdm
