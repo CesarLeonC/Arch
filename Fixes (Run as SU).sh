@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #################################################
 #     Name: Cesar Leon C.
 #     Type: Shell Script
