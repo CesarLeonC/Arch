@@ -1,8 +1,8 @@
 # Install Window Manager and Display Manager
-sudo pacman -S xorg
+sudo pacman -S --noconfirm xorg
 
 # Install without conflicts 
-pacinstall --yolo lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar \
+sudo pacman -S --noconfirmlightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar \
                 dmenu picom nitrogen
 
 # Crear el directorio y el archivo con la configuracion
@@ -27,6 +27,6 @@ main = xmonad $ def
    terminal   = myTerminal
    }
 EOF
-
+sudo systemctl enable lightdm
 xmonad --recompile
 xmonad --restart
