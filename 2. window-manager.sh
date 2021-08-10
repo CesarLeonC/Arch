@@ -1,3 +1,12 @@
+#! /bin/bash
+
+#################################################
+#     Name: Cesar Leon C.
+#     Type: Shell Script
+#     Date: August, the 8th/ 2021
+#     Description: WINDOW MANAGER INSTALL
+#################################################
+
 # Install Window Manager and Display Manager
 sudo pacman -S --noconfirm xorg
 
