@@ -1,8 +1,6 @@
-# Install new shell, customizations, emacs and others
-sudo pacman -S --noconfirm zsh wget
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
-sudo chsh -s $(which zsh)
 
+# RUN THESE SCRIPTS AS ROOT
+# sudo -i
 # Include tap-to-click method on touchpads
 sudo cat << EOF > /etc/X11/xorg.conf.d/30-touchpad.conf
 Section "InputClass"
@@ -13,7 +11,12 @@ Section "InputClass"
 EndSection
 EOF
 
-sudo cat << EOF > /root/.zshrc
+# Install new shell, customizations, emacs and others
+sudo pacman -S --noconfirm zsh wget
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+usermod -s /bin/zsh cesar
+
+cat << EOF > /home/cesar/.zshrc
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="rkj-repos"
 DISABLE_UPDATE_PROMPT="true"
