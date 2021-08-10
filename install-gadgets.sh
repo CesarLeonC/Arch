@@ -16,16 +16,5 @@ else
 fi
 EOF
 
-# RUN THESE SCRIPTS AS ROOT
-# Include tap-to-click method on touchpads
-sudo cat << EOF > /etc/X11/xorg.conf.d/30-touchpad.conf
-Section "InputClass"
-    Identifier "touchpad"
-    Driver "libinput"
-    MatchIsTouchpad "on"
-    Option "Tapping" "on"
-EndSection
-EOF
-
 # Changing default shell
 sudo usermod -s /bin/zsh cesar
