@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 #################################################
 #     Name: Cesar Leon C.
@@ -12,7 +12,7 @@ sudo pacman -S --noconfirm xorg
 
 # Install without conflicts 
 sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar \
-                dmenu picom nitrogen alacritty chromium
+                dmenu picom nitrogen alacritty chromium zsh wget
 
 # Crear el directorio y el archivo con la configuracion
 mkdir -p /home/cesar/.xmonad/
