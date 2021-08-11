@@ -14,20 +14,17 @@ sudo pacman -S --noconfirm fd emacs ripgrep
 git clone https://github.com/hlissner/doom-emacs /home/cesar/.emacs.d
 /home/cesar/.emacs.d/bin/doom install
 
-# Check installation
-doom &>> ~/doom_log.txt
-
 # Install accesories
-sudo pacman -S --noconfirm zsh wget gimp obs \
+sudo pacman -S --noconfirm zsh wget gimp obs-studio \
           vifm audacity kdenlive vlc virtualbox
 
 # Export personal config
-cat << EOF > /home/cesar/.zshrc
-export PATH=/home/cesar/.emacs.d/bin:$PATH
-export ZSH=/home/cesar/.oh-my-zsh
+cat << 'EOF' > /home/cesar/.zshrc
+export PATH=~/.emacs.d/bin:$PATH
+export ZSH=~/.oh-my-zsh
 ZSH_THEME="rkj-repos"
 DISABLE_UPDATE_PROMPT="true"
 export UPDATE_ZSH_DAYS=13
 plugins=(git github)
-source /home/cesar/.oh-my-zsh/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 EOF
