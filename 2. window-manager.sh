@@ -25,7 +25,7 @@ import XMonad
 import XMonad.Util.EZConfig
 import XMonad.Util.Ungrab
 import XMonad.Layout.Grid
-import Xmonad.Hooks.EwmhDesktops
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 
 myModMask     = mod4Mask
