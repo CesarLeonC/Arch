@@ -7,6 +7,9 @@
 #     Description: INSTALL VARIETY OF PROGRAMS
 #################################################
 
+# Actualizar los mirrors
+sudo reflector -c 'United States' -a 12 --sort rate --save /etc/pacman.d/mirrorlist
+
 # Install emacs
 sudo pacman -S --noconfirm fd emacs ripgrep
 
