@@ -43,7 +43,7 @@ myConfig      = def
    {
    modMask        = myModMask,
    terminal       = myTerminal,
-   layoutHooks    = myLayoutHooks
+   layoutHook     = myLayoutHook
    }
 
 main :: IO ()
