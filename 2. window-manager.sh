@@ -24,8 +24,11 @@ cat << 'EOF' > /home/cesar/.zshrc
 ###################################
 
 export PATH=~/.emacs.d/bin:$PATH
-export XDG_CONFIG_HOME=~/.config/
+export XDG_CONFIG_HOME=~/.config
 export ZSH=~/.oh-my-zsh
+export REPO=~/Repositories
+export CESAR_REPO=$REPO/cesarleonc
+export ARCH_REPO=$CESAR_REPO/Arch
 export UPDATE_ZSH_DAYS=13
 
 ###################################
@@ -49,8 +52,8 @@ sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib \
                 xmobar dmenu picom nitrogen alacritty chromium
 
 # Copiar el archivo de configuracion a la carpeta correspondiente
-cp ./configs/xmonad.hs $XDG_CONFIG_HOME/xmonad/xmonad.hs
-cp ./configs/xmobarrc $XDG_CONFIG_HOME/xmobar/xmobarrc
+cp $ARCH_REPO/configs/xmonad.hs $XDG_CONFIG_HOME/xmonad/xmonad.hs
+cp $ARCH_REPO/configs/xmobarrc $XDG_CONFIG_HOME/xmobar/xmobarrc
 
 sudo systemctl enable lightdm
 xmonad --recompile
