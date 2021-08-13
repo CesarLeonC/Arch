@@ -16,6 +16,7 @@ sudo usermod -s /bin/zsh cesar
 
 # Install Oh-My-Zsh
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+mkdir -p ~/.config/xmonad
 
 # Install Window Manager and Display Manager
 sudo pacman -S --noconfirm xorg
