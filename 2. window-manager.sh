@@ -13,7 +13,7 @@ sudo pacman -S --noconfirm xorg
 
 # Install without conflicts 
 sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar \
-                dmenu picom nitrogen alacritty chromium
+                dmenu picom nitrogen alacritty chromium linux-zen linux-zen-headers
 
 # Crear el directorio y el archivo con la configuracion
 mkdir -p /home/cesar/.xmonad/
