@@ -8,6 +8,15 @@
 #     Description: WINDOW MANAGER INSTALL
 #################################################
 
+# Install wget and zsh
+sudo pacman -S --noconfirm wget zsh
+
+# Change default user shell to zsh
+sudo usermod -s /bin/zsh cesar
+
+# Install Oh-My-Zsh
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+
 # Install Window Manager and Display Manager
 sudo pacman -S --noconfirm xorg
 
@@ -15,41 +24,8 @@ sudo pacman -S --noconfirm xorg
 sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar \
                 dmenu picom nitrogen alacritty chromium linux-zen linux-zen-headers
 
-# Crear el directorio y el archivo con la configuracion
-mkdir -p /home/cesar/.xmonad/
-cat << EOF > /home/cesar/.xmonad/xmonad.hs
-------------------------------------------
--- 1.- Imports
-------------------------------------------
-
-import XMonad
-import XMonad.Util.EZConfig
-import XMonad.Util.Ungrab
-import XMonad.Layout.Grid
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.DynamicLog
-
-myModMask     = mod4Mask
-myTerminal    = "alacritty"
-myBorderWidth = 2
-myLayoutHook  = grid ||| tiled ||| Mirror tiled ||| Full
-   where
-      grid    = Grid
-      tiled   = Tall nmaster delta ratio
-      nmaster = 1
-      ratio   = 1/2
-      delta   = 3/100
-
-myConfig      = def
-   {
-   modMask        = myModMask,
-   terminal       = myTerminal,
-   layoutHook     = myLayoutHook
-   }
-
-main :: IO ()
-main = xmonad . ewmh =<< xmobar myConfig
-EOF
+# Copiar el archivo de configuracion a la carpeta correspondiente
+cp ./xmonad.hs ~/.config/xmonad/xmonad.hs
 
 sudo systemctl enable lightdm
 xmonad --recompile
