@@ -22,8 +22,8 @@ mkdir -p ~/.config/xmonad
 sudo pacman -S --noconfirm xorg
 
 # Install without conflicts 
-sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar \
-                dmenu picom nitrogen alacritty chromium linux-zen linux-zen-headers
+sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib \
+                xmobar dmenu picom nitrogen alacritty chromium
 
 # Copiar el archivo de configuracion a la carpeta correspondiente
 cp ./configs/xmonad.hs ~/.config/xmonad/xmonad.hs
