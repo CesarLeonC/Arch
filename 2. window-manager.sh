@@ -14,9 +14,32 @@ sudo pacman -S --noconfirm wget zsh
 # Change default user shell to zsh
 sudo usermod -s /bin/zsh cesar
 
-# Install Oh-My-Zsh
+# Install Oh-My-Zsh and Customize configuration file
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+
+# Export personal config
+cat << 'EOF' > /home/cesar/.zshrc
+###################################
+# 1. Exports
+###################################
+
+export PATH=~/.emacs.d/bin:$PATH
+export $XDG_CONFIG_HOME=~/.config/
+export ZSH=~/.oh-my-zsh
+export UPDATE_ZSH_DAYS=13
+
+###################################
+# 2. Variables
+###################################
+
+ZSH_THEME="rkj-repos"
+DISABLE_UPDATE_PROMPT="true"
+plugins=(git github)
+source $ZSH/oh-my-zsh.sh
+EOF
+
 mkdir -p ~/.config/xmonad
+mkdir -p ~/.config/xmobar
 
 # Install Window Manager and Display Manager
 sudo pacman -S --noconfirm xorg
@@ -26,7 +49,8 @@ sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib \
                 xmobar dmenu picom nitrogen alacritty chromium
 
 # Copiar el archivo de configuracion a la carpeta correspondiente
-cp ./configs/xmonad.hs ~/.config/xmonad/xmonad.hs
+cp ./configs/xmonad.hs $XDG_CONFIG_HOME/xmonad/xmonad.hs
+cp ./configs/xmobarrc $XDG_CONFIG_HOME/xmobar/xmobarrc
 
 sudo systemctl enable lightdm
 xmonad --recompile
