@@ -24,7 +24,7 @@ cat << 'EOF' > /home/cesar/.zshrc
 ###################################
 
 export PATH=~/.emacs.d/bin:$PATH
-export $XDG_CONFIG_HOME=~/.config/
+export XDG_CONFIG_HOME=~/.config/
 export ZSH=~/.oh-my-zsh
 export UPDATE_ZSH_DAYS=13
 
