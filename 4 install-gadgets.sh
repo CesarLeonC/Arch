@@ -2,6 +2,7 @@
 
 #################################################
 #     Name: Cesar Leon C.
+#     E-mail: leoncesaralejandro@gmail.com
 #     Type: Shell Script
 #     Date: August, the 8th/ 2021
 #     Description: SCRIPT READY TO FIX PROBLEMS 
