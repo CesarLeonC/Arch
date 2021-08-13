@@ -22,5 +22,3 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 
 # Install accesories
 sudo pacman -S --noconfirm obs-studio vifm vlc virtualbox
-# Change default user shell to zsh
-sudo usermod -s /bin/zsh cesar
