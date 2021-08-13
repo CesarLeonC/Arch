@@ -52,8 +52,8 @@ sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib \
                 xmobar dmenu picom nitrogen alacritty chromium
 
 # Copiar el archivo de configuracion a la carpeta correspondiente
-cp $CESAR_REPO/Arch/configs/xmonad.hs $XDG_CONFIG_HOME/xmonad/xmonad.hs
-cp $CESAR_REPO/Arch/configs/xmobarrc $XDG_CONFIG_HOME/xmobar/xmobarrc
+cp $CESAR_REPO/Arch/configs/xmonad.hs ~/.config/xmonad/xmonad.hs
+cp $CESAR_REPO/Arch/configs/xmobarrc ~/.config/xmobar/xmobarrc
 
 sudo systemctl enable lightdm
 xmonad --recompile
