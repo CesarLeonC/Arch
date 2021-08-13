@@ -43,7 +43,7 @@ EOF
 
 mkdir -p ~/.config/xmonad
 mkdir -p ~/.config/xmobar
-
+echo "alias CESAR_REPO=~/Repositories/cesarleonc" >> ~/.bashrc
 # Install Window Manager and Display Manager
 sudo pacman -S --noconfirm xorg
 
@@ -52,8 +52,8 @@ sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib \
                 xmobar dmenu picom nitrogen alacritty chromium
 
 # Copiar el archivo de configuracion a la carpeta correspondiente
-cp $ARCH_REPO/configs/xmonad.hs $XDG_CONFIG_HOME/xmonad/xmonad.hs
-cp $ARCH_REPO/configs/xmobarrc $XDG_CONFIG_HOME/xmobar/xmobarrc
+cp $CESAR_REPO/Arch/configs/xmonad.hs $XDG_CONFIG_HOME/xmonad/xmonad.hs
+cp $CESAR_REPO/Arch/configs/xmobarrc $XDG_CONFIG_HOME/xmobar/xmobarrc
 
 sudo systemctl enable lightdm
 xmonad --recompile
