@@ -26,7 +26,7 @@ sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmo
                 dmenu picom nitrogen alacritty chromium linux-zen linux-zen-headers
 
 # Copiar el archivo de configuracion a la carpeta correspondiente
-cp ./xmonad.hs ~/.config/xmonad/xmonad.hs
+cp ./configs/xmonad.hs ~/.config/xmonad/xmonad.hs
 
 sudo systemctl enable lightdm
 xmonad --recompile
