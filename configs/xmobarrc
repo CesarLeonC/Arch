@@ -16,9 +16,10 @@ Config { font               = "xft:"
                      Run Swap [] 10,
                      Run Com "uname" [ "-s","-r" ] "" 36000,
                      Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                     Run StdinReader
        ]
        , sepChar            = "%"
        , alignSep           = "}{"
        , template           = "%uname% | %cpu% | %memory% * %swap% }{ \
-                            \{ <fc=#ee9a00>%date%</fc> | %SEGU% 
+                            \{ <fc=#ee9a00>%date%</fc> | %SEGU% | %Stdinreader% 
 }
