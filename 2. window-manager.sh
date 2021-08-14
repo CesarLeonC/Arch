@@ -43,7 +43,7 @@ EOF
 
 mkdir -p ~/.config/xmonad
 mkdir -p ~/.config/xmobar
-echo "alias CESAR_REPO=~/Repositories/cesarleonc" >> ~/.bashrc
+
 # Install Window Manager and Display Manager
 sudo pacman -S --noconfirm xorg
 
