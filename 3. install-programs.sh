@@ -8,6 +8,8 @@
 #     Description: INSTALL VARIETY OF PROGRAMS
 #################################################
 
+# 
+
 # Actualizar los mirrors
 sudo rm -rf /etc/pacman.d/mirrorlist
 sudo curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
@@ -22,3 +24,7 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 
 # Install accesories
 sudo pacman -S --noconfirm obs-studio vifm vlc virtualbox
+
+
+# Regresar los mirrorlist de Ecuador
+reflector -c Ecuador -a 12 --sort rate --save /etc/pacman.d/mirrorlist
