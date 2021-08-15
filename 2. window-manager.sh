@@ -9,7 +9,8 @@
 #################################################
 
 # Update Ecuadorian mirorlist
-sudo reflector -c Ecuador -a 12 --sort rate --save /etc/pacman.d/mirrorlist  
+sudo rm /etc/pacman.d/mirrorlist
+sudo cp ~/Repositories/cesarleonc/Arch/configs/mirrorlist /etc/pacman.d/mirrorlist
 
 # Install wget and zsh
 sudo pacman -S --noconfirm wget zsh
