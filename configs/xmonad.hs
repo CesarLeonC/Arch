@@ -8,7 +8,13 @@ import XMonad.Util.Ungrab
 import XMonad.Layout.Grid
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
+import XMonad.Config.Desktop
 
+------------------------------------------
+-- 2.- Variables
+------------------------------------------
+
+myBar         = xmobarPP {  }
 myModMask     = mod4Mask
 myTerminal    = "alacritty"
 myBorderWidth = 2
@@ -27,5 +33,9 @@ myConfig      = def
    layoutHook     = myLayoutHook
    }
 
+------------------------------------------
+-- 3.- Main function
+------------------------------------------
+
 main :: IO ()
-main = xmonad . ewmh =<< xmobar myConfig
+main = xmonad . ewmh =<< myBar myConfig
