@@ -8,8 +8,6 @@
 #     Description: INSTALL VARIETY OF PROGRAMS
 #################################################
 
-# 
-
 # Actualizar los mirrors
 sudo rm -rf /etc/pacman.d/mirrorlist
 sudo curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
