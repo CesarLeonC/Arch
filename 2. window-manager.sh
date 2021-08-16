@@ -58,6 +58,7 @@ sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter xmonad xmonad-contrib \
 # Copiar el archivo de configuracion a la carpeta correspondiente
 cp ~/Repositories/cesarleonc/Arch/configs/xmonad.hs ~/.config/xmonad/xmonad.hs
 cp ~/Repositories/cesarleonc/Arch/configs/xmobarrc ~/.config/xmobar/xmobarrc
+cp ~/Repositories/cesarleonc/Arch/configs/.xprofile ~/.xprofile
 
 sudo systemctl enable lightdm
 xmonad --recompile
