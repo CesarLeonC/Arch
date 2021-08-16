@@ -15,10 +15,10 @@
 import XMonad
 
 import XMonad.Actions.MouseResize
-import XMonad.Actions.WindowArranger
 import XMonad.Actions.RotSlaves
 
 import XMonad.Layout.Grid
+import XMonad.Layout.WindowArranger
 
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
@@ -76,13 +76,9 @@ myLayoutHook = mouseResize
 ----------------------------------------------------------------
 
 main :: IO ()
-main = do
-       {
-       xbar0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
-       xmonad $ ewmh def
+main = do xmonad . ewmh =<< statusBar "xmobar $HOME/.config/xmobar/xmobarrc" def
            { modMask       = myModMask
            , terminal      = myTerminal
            , borderWidth   = myBorderWidth
            , workspaces    = myWorkspaces
-           }
-       } `additionalKeysP` myKeybindings
+           } `additionalKeysP` myKeybindings
