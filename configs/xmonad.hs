@@ -22,6 +22,7 @@ import XMonad.Layout.WindowArranger
 
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
+
 ----------------------------------------------------------------
 -- 2. Variables
 -- Defining variables used in various hooks and configs
@@ -44,8 +45,8 @@ myWorkspaces = [" broken "," work "," rec "," ide "," vbox "]
 -- Keybindings should relate the key with the method.
 ----------------------------------------------------------------
 
-myKeybindings = [ ("M-t", spawn (myTerminal))			-- Open Terminal
-                , ("M-d", spawn "dmenu_run -i -p \"Verga: \"")	-- Open Dmenu
+myKeybindings = [ ("M-t", spawn (myTerminal))                   -- Open Terminal
+                , ("M-d", spawn "dmenu_run -i -p \"Run: \"")    -- Open Dmenu
                 ]
 
 ----------------------------------------------------------------
@@ -57,28 +58,24 @@ myKeybindings = [ ("M-t", spawn (myTerminal))			-- Open Terminal
 -- Open apps at startup hook
 myStartupHook = do
     spawnOnce "lxsession &"
-    spawnOnce "picom -f &"			-- compositor with fade effect
-    spawnOnce "nm-applet &"			-- network manager applet
-    spawnOnce "volumeicon &"			-- alsamixer volume icon
-    spawnOnce "/usr/bin/emacs --daemon &"	-- emacs daemon
-    spawnOnce "nitrogen --restore &"		-- wallpaper
-    setWMName "FirstWorkspace"			-- Name of Workspace
-
-myLayoutHook = mouseResize
-             $ windowArrange
-             $ Grid
-
-
---myManageHooks = composeAll
+    spawnOnce "picom -f &"                      -- compositor with fade effect
+    spawnOnce "nm-applet &"                     -- network manager applet
+    spawnOnce "volumeicon &"                    -- alsamixer volume icon
+    spawnOnce "/usr/bin/emacs --daemon &"       -- emacs daemon
+    spawnOnce "nitrogen --restore &"            -- wallpaper
 
 ----------------------------------------------------------------
 -- 5. Configs
 ----------------------------------------------------------------
+myConfig = def
+           { modMask        = myModMask
+           , terminal       = myTerminal
+           , borderWidth    = myBorderWidth
+           , workspaces     = myWorkspaces,
+           , startupHook    = myStartupHook
+           } `additionalKeysP` myKeybindings
 
 main :: IO ()
-main = do xmonad . ewmh =<< statusBar "xmobar $HOME/.config/xmobar/xmobarrc" def
-           { modMask       = myModMask
-           , terminal      = myTerminal
-           , borderWidth   = myBorderWidth
-           , workspaces    = myWorkspaces
-           } `additionalKeysP` myKeybindings
+main = do
+  xmproc <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmonbarrc"
+  xmonad myConfig
