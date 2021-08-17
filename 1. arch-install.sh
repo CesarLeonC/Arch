@@ -2,8 +2,8 @@
 
 #################################################
 #     Name: Cesar Leon C.
-#     Type: Shell Script
 #     E-mail: leoncesaralejandro@gmail.com
+#     Type: Shell Script
 #     Date: August, the 7th/ 2021
 #     Description: ARCH LINUX INSTALL USING
 #                  PERSONAL CONFIG
