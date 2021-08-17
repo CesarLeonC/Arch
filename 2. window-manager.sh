@@ -5,7 +5,7 @@
 #     E-mail: leoncesaralejandro@gmail.com
 #     Type: Shell Script
 #     Date: August, the 8th/ 2021
-#     Description: INSTALL VARIETY OF PROGRAMS
+#     Description: INSTALL XMONAD WINDOW MANAGER
 #################################################
 
 
