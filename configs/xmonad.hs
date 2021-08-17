@@ -1,8 +1,8 @@
 ----------------------------------------------------------------
---	Name:		Cesar Leon
---	Type:		Haskell Script
---	E-mail:		leoncesaralejandro@gmail.com
---	Date:		August, the 15th/ 2021
+--	Name:		      Cesar Leon
+--	Type:		      Haskell Script
+--	E-mail:		    leoncesaralejandro@gmail.com
+--	Date:		      August, the 15th/ 2021
 --	Description:	XMONAD CONFIGURATION FILE
 ----------------------------------------------------------------
 
@@ -16,12 +16,16 @@ import XMonad
 
 import XMonad.Actions.MouseResize
 import XMonad.Actions.RotSlaves
+import qualified XMonad.Actions.FlexibleResize as Flex
 
 import XMonad.Layout.Grid
+import XMonad.Layput.Spacing
+import XMonad.Layput.LayoutModifier
 import XMonad.Layout.WindowArranger
 
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
+import XMonad.Util.SpawnOnce
 
 ----------------------------------------------------------------
 -- 2. Variables
@@ -52,7 +56,7 @@ myKeybindings = [ ("M-t", spawn (myTerminal))                   -- Open Terminal
 ----------------------------------------------------------------
 -- 4. Hooks
 -- Using hooks to distinguish from configs in main function.
--- 
+-- This sections is for Hooks only, no Configs allowed
 ----------------------------------------------------------------
 
 -- Open apps at startup hook
@@ -64,18 +68,44 @@ myStartupHook = do
     spawnOnce "/usr/bin/emacs --daemon &"       -- emacs daemon
     spawnOnce "nitrogen --restore &"            -- wallpaper
 
+-- Layput of windows and xmobar
+myBaseLayoutHook = avoidStruts $ Grid ||| tiled ||| Mirror tiled ||| Full
+   where
+      tiled          = Tall nmaster delta ratio
+      nmaster        = 1
+      ratio          = 1/2
+      delta          = 3/100
+      
+mySpacing i = spacingRaw        False
+            ( Border i i i i )  True
+            ( Border i i i i )  True
+             
+myLayoutHook = mySpacing 5
+             $ myBaseLayoutHook
+             
 ----------------------------------------------------------------
 -- 5. Configs
+-- Personal configs using previously definded data
 ----------------------------------------------------------------
+
 myConfig = def
            { modMask        = myModMask
            , terminal       = myTerminal
            , borderWidth    = myBorderWidth
-           , workspaces     = myWorkspaces,
+           , workspaces     = myWorkspaces
            , startupHook    = myStartupHook
+           , layoutHook     = myLayoutHook
            } `additionalKeysP` myKeybindings
+
+myBar = spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
+
+----------------------------------------------------------------
+-- 5. Main function
+-- Wrapping up the configuration, variables and all the other
+-- stuff that is needed
+----------------------------------------------------------------
 
 main :: IO ()
 main = do
-  xmproc <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmonbarrc"
-  xmonad myConfig
+  myBar
+  xmonad $ docks myConfig
