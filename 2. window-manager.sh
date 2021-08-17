@@ -2,11 +2,12 @@
 
 #################################################
 #     Name: Cesar Leon C.
-#     Type: Shell Script
 #     E-mail: leoncesaralejandro@gmail.com
+#     Type: Shell Script
 #     Date: August, the 8th/ 2021
-#     Description: WINDOW MANAGER INSTALL
+#     Description: INSTALL VARIETY OF PROGRAMS
 #################################################
+
 
 # Update Ecuadorian mirorlist
 sudo rm /etc/pacman.d/mirrorlist
