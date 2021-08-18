@@ -38,6 +38,7 @@ myTerminal = "alacritty"
 myBrowser = "brave-browser"
 myIDE = "emacsclient -c -a 'emacs'"
 myBorderWidth = 2
+myGap = 7
 myNormColor = "#282c34"
 myFocusColor = "#46d9ff"
 myWorkspaces = [" broken "," work "," rec "," ide "," vbox "]
@@ -76,36 +77,36 @@ myBaseLayoutHook = avoidStruts $ Grid ||| tiled ||| Mirror tiled ||| Full
       ratio          = 1/2
       delta          = 3/100
       
-mySpacing i = spacingRaw        False
-            ( Border i i i i )  True
-            ( Border i i i i )  True
+mySpacing i    = spacingRaw        False
+               ( Border i i i i )  True
+               ( Border i i i i )  True
              
-myLayoutHook = mySpacing 5
-             $ myBaseLayoutHook
-             
+myLayoutHook   = mySpacing myGap
+               $ myBaseLayoutHook
+
+myLogHook bar  = dynamicLogWithPP $ xmobarPP {
+                 ppOutput         = hPutStrLn bar
+               }
 ----------------------------------------------------------------
 -- 5. Configs
 -- Personal configs using previously definded data
-----------------------------------------------------------------
-
-myConfig = def
-           { modMask        = myModMask
-           , terminal       = myTerminal
-           , borderWidth    = myBorderWidth
-           , workspaces     = myWorkspaces
-           , startupHook    = myStartupHook
-           , layoutHook     = myLayoutHook
-           } `additionalKeysP` myKeybindings
-
-myBar = spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
+---------------------------------------------------------------
 
 ----------------------------------------------------------------
--- 5. Main function
+-- 6. Main function
 -- Wrapping up the configuration, variables and all the other
 -- stuff that is needed
 ----------------------------------------------------------------
 
 main :: IO ()
 main = do
-  myBar
-  xmonad $ docks myConfig
+  myBar <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
+  xmonad . ewmh $ docks def { 
+           , borderWidth    = myBorderWidth
+           , layoutHook     = myLayoutHook
+           , logHook        = myLogHook myBar
+           , modMask        = myModMask
+           , startupHook    = myStartupHook
+           , terminal       = myTerminal
+           , workspaces     = myWorkspaces
+           } `additionalKeysP` myKeybindings
