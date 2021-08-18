@@ -1,4 +1,6 @@
 Config { font               = "xft:"
+       , additionalFonts    = []
+       , borderColor        = "black"
        , position           = Top
        , bgColor            = "grey"
        , fgColor            = "white"
@@ -14,12 +16,12 @@ Config { font               = "xft:"
                                "--normal","green","--high","red"] 10,
                      Run Memory [ "-t","Mem: <usedratio>%" ] 10,
                      Run Swap [] 10,
-                     Run Com "uname" [ "-s","-r" ] "" 36000,
                      Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                      Run StdinReader
        ]
        , sepChar            = "%"
        , alignSep           = "}{"
-       , template           = "%uname% | %cpu% | %memory% * %swap% }{ \
-                            \{ <fc=#ee9a00>%date%</fc> | %SEGU% | %Stdinreader% 
+       , template           = "%StdinReader% }{ Arch Linux | %cpu% | \
+                            \ %memory% * %swap% \
+                            \ <fc=#ee9a00>%date%</fc> 
 }
