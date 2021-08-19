@@ -17,7 +17,7 @@ sudo rm /etc/pacman.d/mirrorlist
 sudo cp ~/.config/mirrors/Ecuador-mirrorlist /etc/pacman.d/mirrorlist
 
 # Install wget and zsh
-sudo pacman -S --noconfirm wget zsh nvim
+sudo pacman -S --noconfirm wget zsh neovim
 
 # Change default user shell to zsh
 sudo usermod -s /bin/zsh cesar
@@ -26,7 +26,7 @@ sudo usermod -s /bin/zsh cesar
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
 
 # Copy dot files
-cp -r ~/.config/zsh/.zshenv ~/.zshenv
+#cp -r ~/.config/zsh/.zshenv ~/.zshenv
 mkdir -p ~/.xmonad/
 cp -r ~/.config/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 
