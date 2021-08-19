@@ -30,6 +30,7 @@ cp ~/.config/zsh/.zshenv ~/
 mkdir -p ~/.xmonad/
 cp ~/.config/xmonad/xmonad.hs ~/.xmonad/
 
+
 # Install Window Manager and Display Manager
 sudo pacman -S --noconfirm xorg
 
