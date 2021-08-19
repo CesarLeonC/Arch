@@ -10,4 +10,3 @@
 # 1. Exports
 ###################################
 
-export PATH=~/.emacs.d/bin:$PATH
