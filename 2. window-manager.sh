@@ -10,7 +10,7 @@
 
 # Update XDG config directory, create .config directory and copy files
 xdg-user-dirs-update
-cp ~/Repositories/cesarleonc/Arch/dotfiles/.config/* ~/.config/
+cp -r ~/Repositories/cesarleonc/Arch/dotfiles/.config/* ~/.config/
 
 # Update Ecuadorian mirorlist
 sudo rm /etc/pacman.d/mirrorlist
@@ -26,9 +26,9 @@ sudo usermod -s /bin/zsh cesar
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
 
 # Copy dot files
-cp ~/.config/zsh/.zshenv ~/.zshenv
+cp -r ~/.config/zsh/.zshenv ~/.zshenv
 mkdir -p ~/.xmonad/
-cp ~/.config/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+cp -r ~/.config/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 
 # Install Window Manager and Display Manager
 sudo pacman -S --noconfirm xorg
