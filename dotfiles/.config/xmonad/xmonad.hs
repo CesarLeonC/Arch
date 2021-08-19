@@ -20,9 +20,13 @@ import XMonad.Actions.MouseResize
 import XMonad.Actions.RotSlaves
 import qualified XMonad.Actions.FlexibleResize as Flex
 
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+
 import XMonad.Layout.Grid
-import XMonad.Layput.Spacing
-import XMonad.Layput.LayoutModifier
+import XMonad.Layout.Spacing
+import XMonad.Layout.LayoutModifier
 import XMonad.Layout.WindowArranger
 
 import XMonad.Util.EZConfig
@@ -54,8 +58,8 @@ myWorkspaces = [" broken "," work "," rec "," ide "," vbox "]
 
 myKeybindings = [ ("M-t", spawn (myTerminal))                   -- Open Terminal
                 , ("M-d", spawn "dmenu_run -i -p \"Run: \"")    -- Open Dmenu
-                , ("M-q", spawn "xmonad --recompile"            -- Recompile XMonad
-                , ("M-r", spawn "xmonad --restart"              -- Restart XMonad
+                , ("M-q", spawn "xmonad --recompile")           -- Recompile XMonad
+                , ("M-r", spawn "xmonad --restart")             -- Restart XMonad
                 ]
 
 ----------------------------------------------------------------
@@ -106,7 +110,7 @@ main :: IO ()
 main = do
   myBar <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
   xmonad . ewmh $ docks def { 
-           , borderWidth    = myBorderWidth
+             borderWidth    = myBorderWidth
            , layoutHook     = myLayoutHook
            , logHook        = myLogHook myBar
            , modMask        = myModMask
