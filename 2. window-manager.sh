@@ -8,12 +8,13 @@
 #     Description: INSTALL XMONAD WINDOW MANAGER
 #################################################
 
-# Update XDG config directory
+# Update XDG config directory, create .config directory and copy files
 xdg-user-dirs-update
+cp ~/Repositories/cesarleonc/Arch/dotfiles/.config/* ~/.config/
 
 # Update Ecuadorian mirorlist
 sudo rm /etc/pacman.d/mirrorlist
-sudo cp ~/Repositories/cesarleonc/Arch/dotfiles/.config/mirrors/Ecuador-mirrorlist /etc/pacman.d/mirrorlist
+sudo cp ~/.config/mirrors/Ecuador-mirrorlist /etc/pacman.d/mirrorlist
 
 # Install wget and zsh
 sudo pacman -S --noconfirm wget zsh nvim
@@ -25,8 +26,8 @@ sudo usermod -s /bin/zsh cesar
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
 
 # Copy dot files
-cp ~/Repositories/cesarleonc/Arch/dotfiles/.config/zsh/.zshenv ~/.zshenv
-cp ~/Repositories/cesarleonc/Arch/dotfiles/.config/* ~/.config/
+cp ~/.config/zsh/.zshenv ~/.zshenv
+mkdir -p ~/.xmonad/
 cp ~/.config/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 
 # Install Window Manager and Display Manager
