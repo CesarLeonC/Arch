@@ -504,7 +504,7 @@ Server = http://mirrors.go.ro/archlinux/$repo/os/$arch
 Server = https://mirrors.go.ro/archlinux/$repo/os/$arch
 Server = http://mirrors.hostico.ro/archlinux/$repo/os/$arch
 Server = https://mirrors.hostico.ro/archlinux/$repo/os/$arch
-erver = http://archlinux.mirrors.linux.ro/$repo/os/$arch
+Server = http://archlinux.mirrors.linux.ro/$repo/os/$arch
 Server = http://mirrors.m247.ro/archlinux/$repo/os/$arch
 Server = http://mirrors.nav.ro/archlinux/$repo/os/$arch
 Server = http://mirrors.nxthost.com/archlinux/$repo/os/$arch
@@ -522,7 +522,7 @@ Server = http://mirror.rol.ru/archlinux/$repo/os/$arch
 Server = https://mirror.rol.ru/archlinux/$repo/os/$arch
 Server = http://mirror.truenetwork.ru/archlinux/$repo/os/$arch
 Server = https://mirror.truenetwork.ru/archlinux/$repo/os/$arch
-erver = http://mirror.yandex.ru/archlinux/$repo/os/$arch
+Server = http://mirror.yandex.ru/archlinux/$repo/os/$arch
 Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch
 Server = http://archlinux.zepto.cloud/$repo/os/$arch
 
