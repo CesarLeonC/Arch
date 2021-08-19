@@ -10,7 +10,7 @@
 
 # Actualizar los mirrors
 sudo rm -rf $PACMAN_D_DIR/mirrorlist
-cp $XDG_CONFIG_HOME/mirrors/World-mirrorlist $PACMAN_D_DIR/mirrorlist
+sudo cp $XDG_CONFIG_HOME/mirrors/World-mirrorlist $PACMAN_D_DIR/mirrorlist
 
 # Install emacs
 sudo pacman -S --noconfirm fd emacs ripgrep
@@ -24,4 +24,4 @@ sudo pacman -S --noconfirm obs-studio vifm vlc virtualbox
 
 # Return to Ecuadorian mirrorlist
 sudo rm -rf $PACMAN_D_DIR/mirrorlist
-cp $XDG_CONFIG_HOME/mirrors/Ecuador-mirrorlist $PACMAN_D_DIR/mirrorlist
+sudo cp $XDG_CONFIG_HOME/mirrors/Ecuador-mirrorlist $PACMAN_D_DIR/mirrorlist
