@@ -26,9 +26,9 @@ sudo usermod -s /bin/zsh cesar
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
 
 # Copy dot files
-#cp -r ~/.config/zsh/.zshenv ~/.zshenv
+cp ~/.config/zsh/.zshenv ~/
 mkdir -p ~/.xmonad/
-cp -r ~/.config/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+cp ~/.config/xmonad/xmonad.hs ~/.xmonad/
 
 # Install Window Manager and Display Manager
 sudo pacman -S --noconfirm xorg
