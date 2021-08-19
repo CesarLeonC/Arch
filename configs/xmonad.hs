@@ -12,6 +12,8 @@
 -- (THIS SECTION SHOULD BE AT THE BEGINNING OF THE SCRIPT)
 ----------------------------------------------------------------
 
+import System.IO
+
 import XMonad
 
 import XMonad.Actions.MouseResize
@@ -52,6 +54,8 @@ myWorkspaces = [" broken "," work "," rec "," ide "," vbox "]
 
 myKeybindings = [ ("M-t", spawn (myTerminal))                   -- Open Terminal
                 , ("M-d", spawn "dmenu_run -i -p \"Run: \"")    -- Open Dmenu
+                , ("M-q", spawn "xmonad --recompile"            -- Recompile XMonad
+                , ("M-r", spawn "xmonad --restart"              -- Restart XMonad
                 ]
 
 ----------------------------------------------------------------
