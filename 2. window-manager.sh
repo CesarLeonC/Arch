@@ -23,7 +23,7 @@ sudo pacman -S --noconfirm wget zsh neovim
 sudo usermod -s /bin/zsh cesar
 
 # Install Oh-My-Zsh and Customize configuration file
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+ZSH=~/.config/zsh/.oh-my-zsh sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
 
 # Copy dot files
 cp ~/.config/zsh/.zshenv ~/
