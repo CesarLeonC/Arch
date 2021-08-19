@@ -1,16 +1,15 @@
 #################################################
 #     Name: Cesar Leon C.
 #     E-mail: leoncesaralejandro@gmail.com
-#     Type: Shell Script
+#     Type: Dot File
 #     Date: August, the 8th/ 2021
-#     Description: INSTALL VARIETY OF PROGRAMS
+#     Description: PROGRAMS LAUNCHED ON .xinitrc
 #################################################
 
 #################################################
 ## 1. Compositor
 #################################################
 picom -f &
-
 
 #################################################
 ## 2. Wallpaper
