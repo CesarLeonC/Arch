@@ -14,8 +14,8 @@ export PACMAN_D_DIR="/etc/pacman.d"
 
 ## XMonad configuration variables
 export XMONAD_CONFIG_DIR="$XDG_CONFIG_HOME/xmonad"
-export XMONAD_DATA_DIR="$XMONAD_CONFIG_DIR/data"
-export XMONAD_CACHE_DIR="$XMONAD_CONFIG_DIR/cache"
+export XMONAD_DATA_DIR="$XDG_DATA_HOME/xmonad"
+export XMONAD_CACHE_DIR="$XDG_CACHE_HOME/xmonad"
 
 ## Oh-My-Zsh configuration variables
 export UPDATE_ZSH_DAYS=13
