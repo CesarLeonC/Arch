@@ -10,7 +10,7 @@
 
 # Update XDG config directory, create XDG directories and copy files
 xdg-user-dirs-update
-mkdir -p $HOME/.local/share
+mkdir -p $HOME/.local/share/xmonad
 mkdir -p $HOME/opt
 mkdir -p $HOME/.cache
 
