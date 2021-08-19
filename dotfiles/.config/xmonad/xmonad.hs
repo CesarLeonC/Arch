@@ -110,11 +110,11 @@ main :: IO ()
 main = do
   myBar <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
   xmonad . ewmh $ docks def { 
-             borderWidth    = myBorderWidth
-           , layoutHook     = myLayoutHook
-           , logHook        = myLogHook myBar
-           , modMask        = myModMask
-           , startupHook    = myStartupHook
-           , terminal       = myTerminal
-           , workspaces     = myWorkspaces
-           } `additionalKeysP` myKeybindings
+           borderWidth    = myBorderWidth
+         , layoutHook     = myLayoutHook
+         , logHook        = myLogHook myBar
+         , modMask        = myModMask
+         , startupHook    = myStartupHook
+         , terminal       = myTerminal
+         , workspaces     = myWorkspaces
+         } `additionalKeysP` myKeybindings
