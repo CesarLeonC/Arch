@@ -23,6 +23,8 @@ git clone \
 (cd $HOME/Repositories/font-symbola && \
     makepkg -sic --noconfirm)
 
+fc-cache -vf
+
 # Update mirrors
 sudo rm -rf $PACMAN_D_DIR/mirrorlist
 sudo cp $XDG_CONFIG_HOME/mirrors/World-mirrorlist $PACMAN_D_DIR/mirrorlist
