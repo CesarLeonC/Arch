@@ -22,7 +22,7 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 EMACS_DIR="$HOME/.emacs.d"
 DOOM_DIR="$HOME/.config/doom"
 
-md $DOOM_DIR
+mkdir -p $DOOM_DIR
 cp $EMACS_DIR/init.example.el $DOOM_DIR/init.el
 cp $EMACS_DIR/core/templates/config.example.el $DOOM_DIR/config.el
 cp $EMACS_DIR/core/templates/packages.example.el $DOOM_DIR/packages.el
