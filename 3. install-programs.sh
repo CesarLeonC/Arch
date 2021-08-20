@@ -9,6 +9,12 @@
 #################################################
 
 # Install fonts
+## Oficial Fonts
+sudo pacman -S --noconfirm \
+                noto-fonts noto-fonts-emoji \
+                ttf-dejavu \
+                texlive-core texlive-fontsextra \
+                otf-latin-modern otf-latinmodern-math
 ## AUR fonts
 git clone \
     https://aur.archlinux.org/font-symbola.git \
@@ -16,12 +22,6 @@ git clone \
 
 (cd $HOME/Repositories/font-symbola && \
     makepkg -sic --noconfirm)
-## Oficial Fonts
-sudo pacman -S --noconfirm \
-                noto-fonts noto-fonts-emoji \
-                ttf-dejavu \
-                texlive-core texlive-fontsextra \
-                otf-latin-modern otf-latinmodern-math
 
 # Update mirrors
 sudo rm -rf $PACMAN_D_DIR/mirrorlist
