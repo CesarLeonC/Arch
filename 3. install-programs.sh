@@ -11,7 +11,7 @@
 # Install fonts
 ## Oficial Fonts
 sudo pacman -S \ 
-        --noconfirm \
+#        --noconfirm \
         noto-fonts noto-fonts-emoji \
         ttf-dejavu \
         texlive-core texlive-fontsextra \
