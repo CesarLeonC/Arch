@@ -17,7 +17,8 @@ git clone \
 (cd $HOME/Repositories/font-symbola && \
     makepkg -sic --noconfirm)
 ## Oficial Fonts
-sudo pacman -S noto-fonts noto-fonts-emoji \
+sudo pacman -S --noconfirm \
+                noto-fonts noto-fonts-emoji \
                 ttf-dejavu \
                 texlive-core texlive-fontsextra \
                 otf-latin-modern otf-latinmodern-math
