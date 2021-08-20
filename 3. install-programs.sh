@@ -29,7 +29,7 @@ cp $EMACS_DIR/core/templates/packages.example.el $DOOM_DIR/packages.el
 
 doom sync
 doom env
-emacs --batch -f all-the-icons-install-fonts
+doom install
 
 # Install accesories
 sudo pacman -S --noconfirm obs-studio vifm vlc virtualbox
