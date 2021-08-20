@@ -9,12 +9,14 @@
 #################################################
 
 # Install fonts
+## AUR fonts
 git clone \
     https://aur.archlinux.org/font-symbola.git \
     $HOME/Repositories/font-symbola
-(cd $HOME/Repositories/font-symbola && \
-    makepkg -sic)
 
+(cd $HOME/Repositories/font-symbola && \
+    makepkg -sic --noconfirm)
+## Oficial Fonts
 sudo pacman -S noto-fonts noto-fonts-emoji \
                 ttf-dejavu \
                 texlive-core texlive-fontsextra \
