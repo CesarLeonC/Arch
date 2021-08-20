@@ -15,28 +15,21 @@ sudo cp $XDG_CONFIG_HOME/mirrors/World-mirrorlist $PACMAN_D_DIR/mirrorlist
 # Install emacs
 sudo pacman -S --noconfirm fd emacs ripgrep
 
-# Install doom emacs
-git clone https://github.com/hlissner/doom-emacs $XDG_CONFIG_HOME/emacs.d
+# Install Doom Emacs
+git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
 
-# So we don't have to write $XDG_CONFIG_HOME/emacs.d/bin/doom every time
-PATH="$XDG_CONFIG_HOME/emacs.d/bin:$PATH"
+PATH="$HOME/.emacs.d/bin:$PATH"
+EMACS_DIR="$HOME/.emacs.d"
+DOOM_DIR="$HOME/.config/doom"
 
-# Create a directory for our private config
-mkdir $XDG_CONFIG_HOME/doom  # or ~/.config/doom
+md $DOOM_DIR
+cp $EMACS_DIR/init.example.el $DOOM_DIR/init.el
+cp $EMACS_DIR/core/templates/config.example.el $DOOM_DIR/config.el
+cp $EMACS_DIR/core/templates/packages.example.el $DOOM_DIR/packages.el
 
-# The init.example.el file contains an example doom! call, which tells Doom what
-# modules to load and in what order.
-cp $XDG_CONFIG_HOME/emacs.d/init.example.el $XDG_CONFIG_HOME/doom/init.el
-cp $XDG_CONFIG_HOME/emacs.d/core/templates/config.example.el $XDG_CONFIG_HOME/doom/config.el
-cp $XDG_CONFIG_HOME/emacs.d/core/templates/packages.example.el $XDG_CONFIG_HOME/doom/packages.el
-
-# Then synchronize Doom with your config:
 doom sync
 doom env
-
-# Lastly, install the icon fonts Doom uses:
 emacs --batch -f all-the-icons-install-fonts
-$XDG_CONFIG_HOME/emacs.d/bin/doom install
 
 # Install accesories
 sudo pacman -S --noconfirm obs-studio vifm vlc virtualbox
