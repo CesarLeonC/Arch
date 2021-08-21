@@ -48,7 +48,6 @@ myGap = 7
 myNormColor = "#282c34"
 myFocusColor = "#46d9ff"
 myWorkspaces = [" broken "," work "," rec "," ide "," vbox "]
-ppWindow = xmobarRaw . (\w -> if null then "untitled" else w) . shorten 30
 
 -- Colors -------------------------------------------------------
 
@@ -101,6 +100,9 @@ mySpacing i    = spacingRaw        False
              
 myLayoutHook   = mySpacing myGap
                $ myBaseLayoutHook
+
+ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
+
 
 myLogHook bar  = dynamicLogWithPP  $ xmobarPP {
                  ppOutput          = hPutStrLn bar
