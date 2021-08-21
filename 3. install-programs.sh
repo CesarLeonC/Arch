@@ -10,7 +10,7 @@
 
 # Install fonts
 ## Oficial Fonts
-sudo pacman -S --noconfirm
+sudo pacman -S --noconfirm \
         noto-fonts noto-fonts-emoji \
         ttf-dejavu \
         otf-latin-modern otf-latinmodern-math
