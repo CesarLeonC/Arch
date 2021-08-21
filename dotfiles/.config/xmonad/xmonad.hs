@@ -48,6 +48,12 @@ myGap = 7
 myNormColor = "#282c34"
 myFocusColor = "#46d9ff"
 myWorkspaces = [" broken "," work "," rec "," ide "," vbox "]
+ppWindow = xmobarRaw . (\w -> if null then "untitled" else w) . shorten 30
+
+-- Colors -------------------------------------------------------
+blue = xmobarColor #"bd93f9"
+grey = xmobarColor "#808080"
+white = xmobarColor "#f8f8f2"
 
 ----------------------------------------------------------------
 -- 3. Keybindings
@@ -60,6 +66,7 @@ myKeybindings = [ ("M-t", spawn (myTerminal))                   -- Open Terminal
                 , ("M-d", spawn "dmenu_run -i -p \"Run: \"")    -- Open Dmenu
                 , ("M-q", spawn "xmonad --recompile")           -- Recompile XMonad
                 , ("M-r", spawn "xmonad --restart")             -- Restart XMonad
+                , ("M-e", spawn (myIDE))                        -- Open Editor
                 ]
 
 ----------------------------------------------------------------
@@ -92,9 +99,19 @@ mySpacing i    = spacingRaw        False
 myLayoutHook   = mySpacing myGap
                $ myBaseLayoutHook
 
-myLogHook bar  = dynamicLogWithPP $ xmobarPP {
-                 ppOutput         = hPutStrLn bar
+myLogHook bar  = dynamicLogWithPP  $ xmobarPP {
+                 ppOutput          = hPutStrLn bar
+               , ppSep             = white " • "
+               , ppCurrent         = wrap (white "[") (white "]")
+               , ppHidden          = white . wrap " " ""
+               , ppHiddenNoWindows = grey . wrap " " ""
+               , ppUrgent          = red . wrap (yellow "!") (yellow "!")
+               , ppOrder           = \(ws:_:_:focus) -> [ws,focus]
+               , ppExtras          = [formatFocused formatUnfocused]
                }
+               where
+                  formatFocused     = wrap (white "[") (white "]") . blue  . ppWindow
+                  formatUnfocused   = wrap (grey "[") (grey "]")   . white . ppWindow
 ----------------------------------------------------------------
 -- 5. Configs
 -- Personal configs using previously definded data

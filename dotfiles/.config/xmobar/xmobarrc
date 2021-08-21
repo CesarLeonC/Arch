@@ -26,6 +26,10 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                                           "--normal","green","--high","red"] 10
                     , Run Cpu ["-L","3","-H","50",
                                "--normal","green","--high","red"] 10
+                    , Run Alsa "default" "Master" [ "--template", "<volumestatus>"
+                                                  , "--suffix"  , "True"
+                                                  , "--"
+                                                  , "--on", ""]
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
