@@ -51,9 +51,9 @@ myWorkspaces = [" broken "," work "," rec "," ide "," vbox "]
 ppWindow = xmobarRaw . (\w -> if null then "untitled" else w) . shorten 30
 
 -- Colors -------------------------------------------------------
-blue = xmobarColor #"bd93f9"
-grey = xmobarColor "#808080"
-white = xmobarColor "#f8f8f2"
+blue = xmobarColor #"bd93f9" ""
+grey = xmobarColor "#808080" ""
+white = xmobarColor "#f8f8f2" ""
 
 ----------------------------------------------------------------
 -- 3. Keybindings
