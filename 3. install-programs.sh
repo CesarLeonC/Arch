@@ -10,11 +10,9 @@
 
 # Install fonts
 ## Oficial Fonts
-sudo pacman -S \ 
-#        --noconfirm \
+sudo pacman -S --noconfirm
         noto-fonts noto-fonts-emoji \
         ttf-dejavu \
-#        texlive-core texlive-fontsextra \    # Pesa mucho
         otf-latin-modern otf-latinmodern-math
 ## AUR fonts
 git clone \
