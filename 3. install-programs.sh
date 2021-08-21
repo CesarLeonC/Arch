@@ -14,6 +14,7 @@ sudo pacman -S --noconfirm
         noto-fonts noto-fonts-emoji \
         ttf-dejavu \
         otf-latin-modern otf-latinmodern-math
+
 ## AUR fonts
 git clone \
     https://aur.archlinux.org/font-symbola.git \
