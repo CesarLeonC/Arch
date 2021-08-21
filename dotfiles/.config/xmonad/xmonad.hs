@@ -106,8 +106,7 @@ myLogHook bar  = dynamicLogWithPP  $ xmobarPP {
                , ppHidden          = white . wrap " " ""
                , ppHiddenNoWindows = grey . wrap " " ""
                , ppUrgent          = red . wrap (yellow "!") (yellow "!")
-               , ppOrder           = \(ws:_:_:focus) -> [ws,focus]
-               , ppExtras          = [formatFocused formatUnfocused]
+               , ppOrder           = \[ws, _, t] -> [ws,t]
                }
                where
                   formatFocused     = wrap (white "[") (white "]") . blue  . ppWindow
