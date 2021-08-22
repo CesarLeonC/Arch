@@ -69,7 +69,7 @@ yellow = xmobarColor "#f1fa8c" ""
 
 myKeybindings = [
                 -- Xmonad Key Shorcuts
-                , ("M-q", spawn "xmonad --recompile")           -- Recompile XMonad
+                  ("M-q", spawn "xmonad --recompile")           -- Recompile XMonad
                 , ("M-r", spawn "xmonad --restart")             -- Restart XMonad
                 -- Dmenu utilities
                 , ("M-d", spawn "dmenu_run -i -p \"Run: \"")    -- Open Dmenu
