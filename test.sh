@@ -30,11 +30,13 @@ sudo cp \
 # Install wget and zsh
 sudo pacman -S --noconfirm \
         alacritty neovim wget zsh \
-        fd emacs ripgrep \
-        obs-studio vifm vlc virtualbox \
         noto-fonts noto-fonts-emoji \
         ttf-dejavu \
         otf-latin-modern otf-latinmodern-math
+        
+sudo pacman -S --noconfirm \        
+        fd emacs ripgrep \
+        obs-studio vifm vlc virtualbox \
 
 ## AUR fonts
 # git clone \
