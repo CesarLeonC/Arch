@@ -10,6 +10,7 @@
 
 REPO="$HOME/Repositories/cesarleonc/Arch/"
 CONFIG="$HOME/.config/"
+MIRRORLIST="/etc/pacma.d/mirrorlist"
 
 # Update XDG config directory, create XDG directories and copy files
 xdg-user-dirs-update
@@ -21,24 +22,27 @@ cp -r $REPO/dotfiles/.config/* $CONFIG
 cp $REPO/dotfiles/.xprofile $HOME/
 
 # Update Ecuadorian mirorlist
-sudo rm /etc/pacman.d/mirrorlist
+sudo rm $MIRRORLIST
 sudo cp \
     $CONFIG/mirrors/Ecuador-mirrorlist \
-    /etc/pacman.d/mirrorlist
+    $MIRRORLIST
 
 # Install wget and zsh
-sudo pacman -S --noconfirm wget zsh neovim \
+sudo pacman -S --noconfirm \
+        alacritty neovim wget zsh \
+        fd emacs ripgrep \
+        obs-studio vifm vlc virtualbox \
         noto-fonts noto-fonts-emoji \
         ttf-dejavu \
         otf-latin-modern otf-latinmodern-math
 
 ## AUR fonts
-git clone \
-    https://aur.archlinux.org/font-symbola.git \
-    $HOME/Repositories/font-symbola
+# git clone \
+#     https://aur.archlinux.org/font-symbola.git \
+#     $HOME/Repositories/font-symbola
 
-(cd $HOME/Repositories/font-symbola && \
-    makepkg -sic --noconfirm)
+# (cd $HOME/Repositories/font-symbola && \
+#     makepkg -sic --noconfirm)
 
 fc-cache -vf
 
@@ -59,7 +63,7 @@ sudo pacman -S --noconfirm xorg
 sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter \
                 xmonad xmonad-contrib \
                 xmobar dmenu \
-                picom nitrogen alacritty
+                picom nitrogen
 
 # Enable and Start the greeter
 sudo systemctl enable lightdm

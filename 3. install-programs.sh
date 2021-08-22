@@ -10,13 +10,17 @@
 
 # Update mirrors
 sudo rm -rf $PACMAN_D_DIR/mirrorlist
-sudo cp $XDG_CONFIG_HOME/mirrors/World-mirrorlist $PACMAN_D_DIR/mirrorlist
+sudo cp \
+    $XDG_CONFIG_HOME/mirrors/World-mirrorlist \
+    $PACMAN_D_DIR/mirrorlist
 
 # Install emacs
-sudo pacman -S --noconfirm fd emacs ripgrep
+sudo pacman -S --noconfirm 
 
 # Install Doom Emacs
-git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
+git clone \
+    https://github.com/hlissner/doom-emacs \
+    $HOME/.emacs.d
 
 PATH="$HOME/.emacs.d/bin:$PATH"
 EMACS_DIR="$HOME/.emacs.d"
@@ -32,8 +36,11 @@ doom env
 doom install
 
 # Install accesories
-sudo pacman -S --noconfirm obs-studio vifm vlc virtualbox
+sudo pacman -S --noconfirm \
+            obs-studio vifm vlc virtualbox
 
 # Return to Ecuadorian mirrorlist
 sudo rm -rf $PACMAN_D_DIR/mirrorlist
-sudo cp $XDG_CONFIG_HOME/mirrors/Ecuador-mirrorlist $PACMAN_D_DIR/mirrorlist
+sudo cp \
+    $XDG_CONFIG_HOME/mirrors/Ecuador-mirrorlist \
+    $PACMAN_D_DIR/mirrorlist
