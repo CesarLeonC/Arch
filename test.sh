@@ -16,7 +16,6 @@ MIRRORLIST="/etc/pacma.d/mirrorlist"
 xdg-user-dirs-update
 mkdir -p $HOME/.local/share/xmonad
 mkdir -p $HOME/opt
-mkdir -p $HOME/.cache
 
 cp -r $REPO/dotfiles/.config/* $CONFIG
 cp $REPO/dotfiles/.xprofile $HOME/
