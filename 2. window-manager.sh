@@ -25,7 +25,20 @@ sudo rm /etc/pacman.d/mirrorlist
 sudo cp $CONFIG/mirrors/Ecuador-mirrorlist /etc/pacman.d/mirrorlist
 
 # Install wget and zsh
-sudo pacman -S --noconfirm wget zsh neovim
+sudo pacman -S --noconfirm wget zsh neovim \
+        noto-fonts noto-fonts-emoji \
+        ttf-dejavu \
+        otf-latin-modern otf-latinmodern-math
+
+## AUR fonts
+git clone \
+    https://aur.archlinux.org/font-symbola.git \
+    $HOME/Repositories/font-symbola
+
+(cd $HOME/Repositories/font-symbola && \
+    makepkg -sic --noconfirm)
+
+fc-cache -vf
 
 # Change default user shell to zsh
 sudo usermod -s /bin/zsh cesar

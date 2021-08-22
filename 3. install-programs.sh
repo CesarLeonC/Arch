@@ -8,23 +8,6 @@
 #     Description: INSTALL VARIETY OF PROGRAMS
 #################################################
 
-# Install fonts
-## Oficial Fonts
-sudo pacman -S --noconfirm \
-        noto-fonts noto-fonts-emoji \
-        ttf-dejavu \
-        otf-latin-modern otf-latinmodern-math
-
-## AUR fonts
-git clone \
-    https://aur.archlinux.org/font-symbola.git \
-    $HOME/Repositories/font-symbola
-
-(cd $HOME/Repositories/font-symbola && \
-    makepkg -sic --noconfirm)
-
-fc-cache -vf
-
 # Update mirrors
 sudo rm -rf $PACMAN_D_DIR/mirrorlist
 sudo cp $XDG_CONFIG_HOME/mirrors/World-mirrorlist $PACMAN_D_DIR/mirrorlist
