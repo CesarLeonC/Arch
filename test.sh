@@ -10,12 +10,13 @@
 
 REPO="$HOME/Repositories/cesarleonc/Arch/"
 CONFIG="$HOME/.config/"
-MIRRORLIST="/etc/pacma.d/mirrorlist"
+MIRRORLIST="/etc/pacman.d/mirrorlist"
 
 # Update XDG config directory, create XDG directories and copy files
 xdg-user-dirs-update
-mkdir -p $HOME/.local/share/xmonad
-mkdir -p $HOME/opt
+mkdir -p $HOME/.local/share/xmonad \
+         $HOME/.local/share/fonts \
+         $HOME/opt
 
 cp -r $REPO/dotfiles/.config/* $CONFIG
 cp $REPO/dotfiles/.xprofile $HOME/
