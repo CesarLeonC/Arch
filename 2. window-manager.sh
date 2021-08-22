@@ -8,17 +8,21 @@
 #     Description: INSTALL XMONAD WINDOW MANAGER
 #################################################
 
+REPO="$HOME/Repositories/cesarleonc/Arch/"
+CONFIG="$HOME/.config/"
+
 # Update XDG config directory, create XDG directories and copy files
 xdg-user-dirs-update
 mkdir -p $HOME/.local/share/xmonad
 mkdir -p $HOME/opt
 mkdir -p $HOME/.cache
 
-cp -r ~/Repositories/cesarleonc/Arch/dotfiles/.config/* ~/.config/
+cp -r $REPO/dotfiles/.config/* $CONFIG
+cp $REPO/dotfiles/.xprofile $HOME/
 
 # Update Ecuadorian mirorlist
 sudo rm /etc/pacman.d/mirrorlist
-sudo cp ~/.config/mirrors/Ecuador-mirrorlist /etc/pacman.d/mirrorlist
+sudo cp $CONFIG/mirrors/Ecuador-mirrorlist /etc/pacman.d/mirrorlist
 
 # Install wget and zsh
 sudo pacman -S --noconfirm wget zsh neovim
@@ -27,10 +31,10 @@ sudo pacman -S --noconfirm wget zsh neovim
 sudo usermod -s /bin/zsh cesar
 
 # Install Oh-My-Zsh and Customize configuration file
-ZSH=~/.config/zsh/.oh-my-zsh sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+ZSH=$CONFIG/zsh/.oh-my-zsh sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
 
 # Copy dot files
-cp ~/.config/zsh/.zshenv ~/
+cp $CONFIG/zsh/.zshenv ~/
 
 # Install Window Manager and Display Manager
 sudo pacman -S --noconfirm xorg

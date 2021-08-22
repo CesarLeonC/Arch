@@ -16,13 +16,14 @@ import System.IO
 
 import XMonad
 
-import XMonad.Actions.MouseResize
 import XMonad.Actions.RotSlaves
-import qualified XMonad.Actions.FlexibleResize as Flex
+import XMonad.Actions.CycleWS
 
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+
 
 import XMonad.Layout.Grid
 import XMonad.Layout.Spacing
@@ -47,7 +48,7 @@ myBorderWidth = 2
 myGap = 7
 myNormColor = "#282c34"
 myFocusColor = "#46d9ff"
-myWorkspaces = [" broken "," work "," rec "," ide "," vbox "]
+myWorkspaces = [" term "," ide "," docs "," obs "," vbox "]
 
 -- Colors -------------------------------------------------------
 
@@ -64,11 +65,21 @@ yellow = xmobarColor "#f1fa8c" ""
 -- Keybindings should relate the key with the method.
 ----------------------------------------------------------------
 
-myKeybindings = [ ("M-t", spawn (myTerminal))                   -- Open Terminal
-                , ("M-d", spawn "dmenu_run -i -p \"Run: \"")    -- Open Dmenu
+myKeybindings = [
+                -- Xmonad Key Shorcuts
                 , ("M-q", spawn "xmonad --recompile")           -- Recompile XMonad
                 , ("M-r", spawn "xmonad --restart")             -- Restart XMonad
-                , ("M-e", spawn (myIDE))                        -- Open Editor
+                -- Dmenu utilities
+                , ("M-d", spawn "dmenu_run -i -p \"Run: \"")    -- Open Dmenu
+                -- Spawn Applications
+                , ("M-t", spawn (myTerminal))                   -- Open Terminal
+                , ("M-e", spawn (myIDE))                        -- Emacs Editor
+                , ("M-o", spawn (myRecorder))                   -- OBS
+                , ("M-v", spawn (myVirtManager))                -- Virtual Box
+                -- Window Arrangement
+                , ("M-<Tab>", rotSlavesDown)                    -- Rotate Windows
+                , ("M-<Right>", nextWS)                         -- Move to next Workspace
+                , ("M-<Left>", prevWS)                          -- Move to previous Workspace
                 ]
 
 ----------------------------------------------------------------
