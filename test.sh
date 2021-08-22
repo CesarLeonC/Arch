@@ -8,6 +8,8 @@
 #     Description: INSTALL XMONAD WINDOW MANAGER
 #################################################
 
+# Variables
+
 REPO="$HOME/Repositories/cesarleonc/Arch/"
 CONFIG="$HOME/.config/"
 MIRRORLIST="/etc/pacman.d/mirrorlist"
@@ -26,6 +28,7 @@ sudo rm $MIRRORLIST
 sudo cp \
     $CONFIG/mirrors/Ecuador-mirrorlist \
     $MIRRORLIST
+sudo pacman -Syu --noconfirm
 
 # Install wget and zsh
 sudo pacman -S --noconfirm \
@@ -64,7 +67,7 @@ sudo pacman -S --noconfirm xorg
 sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter \
                 xmonad xmonad-contrib \
                 xmobar dmenu \
-                picom nitrogen
+                picom nitrogen \
 
 # Enable and Start the greeter
 sudo systemctl enable lightdm
