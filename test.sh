@@ -34,9 +34,8 @@ sudo pacman -S --noconfirm \
         ttf-dejavu \
         otf-latin-modern otf-latinmodern-math
         
-sudo pacman -S --noconfirm \        
-        fd emacs ripgrep \
-        obs-studio vifm vlc virtualbox \
+sudo pacman -S --noconfirm fd emacs ripgrep \
+        obs-studio vifm vlc virtualbox
 
 ## AUR fonts
 # git clone \
