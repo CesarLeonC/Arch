@@ -17,11 +17,16 @@ MIRRORLIST="/etc/pacman.d/mirrorlist"
 # 1. Crear carpetas de almacenamiento
 # 1.1 Crear carpeta .config
 xdg-user-dirs-update
-sleep 5
+echo "Carpeta '.config' creada correctamente!!"
+sleep 3
+
 mkdir -p \
     $SHARE/xmonad $SHARE/fonts \
     $HOME/opt $HOME/.cache
+echo "Carpetas de configuracion creadas!!"
 cp -r $REPO/dotfiles/.config/* $CONFIG
+echo "Archivos .dot copiados!!\nEsperando actualizacion total"
+sleep 3
 
 # 2. Actualizar sistema
 # 2.1 Actualizar mirrors
@@ -40,7 +45,9 @@ sudo pacman -S --noconfirm xorg \
                 alacritty neovim wget zsh
 # 3.2 Establecer zsh como shell de preferencia
 sudo usermod -s /bin/zsh cesar
-# 3.3 Copiar configuraciones personales
+echo "Shell cambiado correctamente"
+sleep 3
+# 3.3 Copiar configuraciones personales 
 cp $REPO/dotfiles/.xprofile $HOME
 cp $CONFIG/zsh/.zshenv $HOME
 # 3.4 Iniciar sesion
