@@ -50,7 +50,7 @@ myBorderWidth = 2
 myGap = 7
 myNormColor = "#282c34"
 myFocusColor = "#46d9ff"
-myWorkspaces = [" term "," ide "," docs "," obs "," vbox "]
+myWorkspaces = [" term "," ide "," docs "," obs "," vbox "," video "]
 
 -- Colors -------------------------------------------------------
 
@@ -114,9 +114,6 @@ mySpacing i    = spacingRaw        False
 myLayoutHook   = mySpacing myGap
                $ myBaseLayoutHook
 
-ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
-
-
 myLogHook bar  = dynamicLogWithPP  $ xmobarPP {
                  ppOutput          = hPutStrLn bar
                , ppSep             = white " • "
@@ -124,11 +121,14 @@ myLogHook bar  = dynamicLogWithPP  $ xmobarPP {
                , ppHidden          = white . wrap " " ""
                , ppHiddenNoWindows = grey . wrap " " ""
                , ppUrgent          = red . wrap (yellow "!") (yellow "!")
-               , ppOrder           = \[ws, _, t] -> [ws,t]
-               }
-               where
-                  formatFocused     = wrap (white "[") (white "]") . blue  . ppWindow
-                  formatUnfocused   = wrap (grey "[") (grey "]")   . white . ppWindow
+
+myManageHook   = composeAll [
+               , className    =? "Emacs"       --> doShift (myWorkspaces !! 2)
+               , className    =? "obs"         --> doShift (myWorkspaces !! 3)
+               , className    =? "Virtual Box" --> doShift (myWorkspaces !! 4)
+               , className    =? "VLC"         --> doShift (myWorkspaces !! 5)
+]
+
 ----------------------------------------------------------------
 -- 5. Configs
 -- Personal configs using previously definded data
@@ -147,6 +147,7 @@ main = do
            borderWidth    = myBorderWidth
          , layoutHook     = myLayoutHook
          , logHook        = myLogHook myBar
+         , manageHook     = myManageHook
          , modMask        = myModMask
          , startupHook    = myStartupHook
          , terminal       = myTerminal
