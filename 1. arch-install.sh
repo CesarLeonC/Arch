@@ -67,7 +67,7 @@ useradd -mG wheel cesar
 echo cesar:cesar.leon.14 | chpasswd
 usermod -aG libvirt cesar
 usermod -s /bin/zsh cesar
-cp ./arch/dotfiles.config/zsh/.zshenv /home/cesar/
+cp ./arch/dotfiles/.config/zsh/.zshenv /home/cesar/
 
 echo "cesar ALL=(ALL) ALL" >> /etc/sudoers.d/cesar
 
