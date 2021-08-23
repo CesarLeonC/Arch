@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #################################################
 #     Name: Cesar Leon C.
 #     E-mail: leoncesaralejandro@gmail.com
@@ -8,9 +7,7 @@
 #     Description: ARCH LINUX INSTALL USING
 #                  PERSONAL CONFIG
 #################################################
-
 REPO="$HOME/Repositories/cesarleonc/arch/"
-
 # 1. Instalar nuevo shell y accesorios
 sudo pacman -Sy --noconfirm alacritty neovim \
                             pacman-mirrorlist \
