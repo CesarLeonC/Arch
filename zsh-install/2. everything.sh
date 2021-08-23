@@ -44,8 +44,7 @@ sudo pacman -S --noconfirm xorg lightdm lightdm-gtk-greeter \
                 picom nitrogen \
                 alacritty neovim wget zsh
 # 3.2 Establecer zsh como shell de preferencia
-sudo usermod -s /bin/zsh cesar
-echo "Shell cambiado correctamente"
+sudo systemctl enable lightdm
 sleep 3
 
 # 4. Instalar IDE y suplementos
@@ -77,5 +76,4 @@ ZSH=$CONFIG/zsh/.oh-my-zsh sh -c \
 cp $REPO/dotfiles/.xprofile $HOME
 
 # 4.3 Iniciar sesion
-sudo systemctl enable lightdm
 xmonad --recompile
