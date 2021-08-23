@@ -28,6 +28,7 @@ sudo cp \
 
 # Install wget and zsh
 sudo pacman -S --noconfirm wget zsh neovim \
+        fd ripgrep emacs \
         noto-fonts noto-fonts-emoji \
         ttf-dejavu \
         otf-latin-modern otf-latinmodern-math

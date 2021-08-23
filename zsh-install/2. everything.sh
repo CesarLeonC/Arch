@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 #################################################
 #     Name: Cesar Leon C.
@@ -37,7 +37,7 @@ sudo rm $MIRRORLIST && \
 sudo pacman -Sy --noconfirm pacman-mirrorlist
 
 # 3. Instalar Window Manager
-# 3.1 Instalar los programas
+# 3.1 Instalar WM, greeter y terminal
 sudo pacman -S --noconfirm xorg lightdm lightdm-gtk-greeter \
                 xmonad xmonad-contrib \
                 xmobar dmenu \
@@ -47,9 +47,34 @@ sudo pacman -S --noconfirm xorg lightdm lightdm-gtk-greeter \
 sudo usermod -s /bin/zsh cesar
 echo "Shell cambiado correctamente"
 sleep 3
-# 3.3 Copiar configuraciones personales 
+
+# 4. Instalar accesorios
+# 4.1 Instalar Oh-My-Zsh
+ZSH=$CONFIG/zsh/.oh-my-zsh sh -c \
+    "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+# 4.2 Copiar configuraciones personales 
 cp $REPO/dotfiles/.xprofile $HOME
-cp $CONFIG/zsh/.zshenv $HOME
-# 3.4 Iniciar sesion
+# 4.3 Iniciar sesion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sudo systemctl enable lightdm
 xmonad --recompile

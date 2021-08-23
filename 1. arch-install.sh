@@ -41,7 +41,7 @@ pacinstall --yolo grub networkmanager network-manager-applet dialog wpa_supplica
                   openssh rsync acpi acpi_call tlp virt-manager dnsmasq 
                   qemu qemu-arch-extra edk2-ovmf bridge-utils vde2 openbsd-netcat 
                   iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid 
-                  os-prober ntfs-3g terminus-font os-prober broadcom-wl
+                  os-prober ntfs-3g terminus-font os-prober broadcom-wl zsh
 
 # Instalar grub dentro de BIOS/MBR
 grub-install --target=i386-pc /dev/sda
@@ -66,6 +66,8 @@ systemctl enable acpid
 useradd -mG wheel cesar
 echo cesar:cesar.leon.14 | chpasswd
 usermod -aG libvirt cesar
+usermod -s /bin/zsh cesar
+cp ./arch/dotfiles.config/zsh/.zshenv /home/cesar/
 
 echo "cesar ALL=(ALL) ALL" >> /etc/sudoers.d/cesar
 
