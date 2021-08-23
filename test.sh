@@ -17,6 +17,7 @@ MIRRORLIST="/etc/pacman.d/mirrorlist"
 # 1. Crear carpetas de almacenamiento
 # 1.1 Crear carpeta .config
 xdg-user-dirs-update
+sleep 5
 mkdir -p \
     $SHARE/xmonad $SHARE/fonts \
     $HOME/opt $HOME/.cache
@@ -24,7 +25,7 @@ mkdir -p \
 # 2. Actualizar sistema
 # 2.1 Actualizar mirrors
 sudo rm $MIRRORLIST && \
-     cp $CONFIG/mirrors/Ecuador-mirrorlist $MIRRORLIST
+     sudo cp $CONFIG/mirrors/Ecuador-mirrorlist $MIRRORLIST
 # 2.2 Actualizar base de datos
 sudo pacman -Syu
 
@@ -45,4 +46,3 @@ cp $CONFIG/zsh/.zshenv $HOME
 # 3.4 Iniciar sesion
 sudo systemctl enable lightdm
 xmonad --recompile
-sudo systemctl start lightdm
