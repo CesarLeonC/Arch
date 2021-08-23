@@ -12,7 +12,7 @@
 REPO="$HOME/Repositories/cesarleonc/Arch/"
 CONFIG="$HOME/.config/"
 SHARE="$CONFIG/share"
-MIRRORLIST = "/etc/pacman.d/mirrorlist"
+MIRRORLIST="/etc/pacman.d/mirrorlist"
 
 # 1. Crear carpetas de almacenamiento
 # 1.1 Crear carpeta .config
