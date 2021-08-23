@@ -116,18 +116,20 @@ myLayoutHook   = mySpacing myGap
 
 myLogHook bar  = dynamicLogWithPP  $ xmobarPP {
                  ppOutput          = hPutStrLn bar
-               , ppSep             = white " • "
+               , ppSep             = "<fc=#666666> <fn=1>|</fn> </fc>"
                , ppCurrent         = wrap (white "[") (white "]")
                , ppHidden          = white . wrap " " ""
                , ppHiddenNoWindows = grey . wrap " " ""
                , ppUrgent          = red . wrap (yellow "!") (yellow "!")
+               , ppOrder           = \(ws:l:t) -> [ws,l]++[t]
+               }
 
 myManageHook   = composeAll [
                , className    =? "Emacs"       --> doShift (myWorkspaces !! 2)
                , className    =? "obs"         --> doShift (myWorkspaces !! 3)
                , className    =? "Virtual Box" --> doShift (myWorkspaces !! 4)
                , className    =? "VLC"         --> doShift (myWorkspaces !! 5)
-]
+               ]
 
 ----------------------------------------------------------------
 -- 5. Configs
