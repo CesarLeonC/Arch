@@ -139,8 +139,8 @@ myManageHook   = composeAll [
                , className    =? "obs"                --> doShift (myWorkspaces !! 3)
                , className    =? "VirtualBox Manager" --> doShift (myWorkspaces !! 4)
                , className    =? "vlc"                --> doShift (myWorkspaces !! 5)
-               , className    =? "nitrogen"           --> doShift (myWorkspaces !! 6)
-               , isFullScreen                         --> doFullFloat
+               , className    =? "Nitrogen"           --> doShift (myWorkspaces !! 6)
+               , isFullscreen                         --> doFullFloat
                ]
 
 ----------------------------------------------------------------
