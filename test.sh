@@ -9,7 +9,7 @@
 #################################################
 
 # 0. Definir las variables de interes
-REPO="$HOME/Repositories/cesarleonc/Arch/"
+REPO="$HOME/Repositories/cesarleonc/arch/"
 CONFIG="$HOME/.config/"
 SHARE="$CONFIG/share"
 MIRRORLIST="/etc/pacman.d/mirrorlist"
@@ -18,7 +18,7 @@ MIRRORLIST="/etc/pacman.d/mirrorlist"
 # 1.1 Crear carpeta .config
 xdg-user-dirs-update
 mkdir -p \
-    $SHARE/xmonad $SHARE/fonts
+    $SHARE/xmonad $SHARE/fonts \
     $HOME/opt $HOME/.cache
 
 # 2. Actualizar sistema
