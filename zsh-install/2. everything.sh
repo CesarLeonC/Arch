@@ -51,6 +51,9 @@ sleep 3
 # 4. Instalar IDE y suplementos
 # 4.1 Instalar todo
 sudo pacman -S --noconfirm fd ripgrep emacs \
+            noto-fonts noto-fonts-emoji \
+            ttf-dejavu \
+            otf-latin-modern otf-latinmodern-math \
             obs-studio vifm vlc virtualbox
 
 # 4.2 Instalar Doom Emacs
@@ -64,7 +67,7 @@ cp $EMACS_DIR/core/templates/config.example.el $DOOM_DIR/config.el
 cp $EMACS_DIR/core/templates/packages.example.el $DOOM_DIR/packages.el
 
 doom sync
-domm install
+doom install
 
 # 4. Instalar accesorios
 # 4.1 Instalar Oh-My-Zsh
