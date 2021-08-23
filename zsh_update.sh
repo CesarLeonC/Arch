@@ -7,11 +7,11 @@
 #     Description: ARCH LINUX INSTALL USING
 #                  PERSONAL CONFIG
 #################################################
-REPO="$HOME/Repositories/cesarleonc/arch/"
+REPO=$HOME/Repositories/cesarleonc/arch
 # 1. Instalar nuevo shell y accesorios
 sudo pacman -Sy --noconfirm alacritty neovim \
-                            pacman-mirrorlist \
-                            zsh wget 
+                pacman-mirrorlist \
+                zsh wget 
 # 2. Copiar la configuracion
 cp $REPO/dotfiles/.config/zsh/.zshenv $HOME/
 # 3. Cambiar el shell predeterminado
