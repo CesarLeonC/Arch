@@ -41,8 +41,7 @@ sudo pacman -Sy --noconfirm pacman-mirrorlist
 sudo pacman -S --noconfirm xorg lightdm lightdm-gtk-greeter \
                 xmonad xmonad-contrib \
                 xmobar dmenu \
-                picom nitrogen \
-                alacritty neovim wget zsh
+                picom nitrogen
 # 3.2 Establecer zsh como shell de preferencia
 sudo systemctl enable lightdm
 sleep 3
