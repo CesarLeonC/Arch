@@ -8,68 +8,41 @@
 #     Description: INSTALL XMONAD WINDOW MANAGER
 #################################################
 
-# Variables
-
+# 0. Definir las variables de interes
 REPO="$HOME/Repositories/cesarleonc/Arch/"
 CONFIG="$HOME/.config/"
-MIRRORLIST="/etc/pacman.d/mirrorlist"
+SHARE="$CONFIG/share"
+MIRRORLIST = "/etc/pacman.d/mirrorlist"
 
-# Update XDG config directory, create XDG directories and copy files
+# 1. Crear carpetas de almacenamiento
+# 1.1 Crear carpeta .config
 xdg-user-dirs-update
-mkdir -p $HOME/.local/share/xmonad \
-         $HOME/.local/share/fonts \
-         $HOME/opt
+mkdir -p \
+    $SHARE/xmonad $SHARE/fonts
+    $HOME/opt $HOME/.cache
 
-cp -r $REPO/dotfiles/.config/* $CONFIG
-cp $REPO/dotfiles/.xprofile $HOME/
+# 2. Actualizar sistema
+# 2.1 Actualizar mirrors
+sudo rm $MIRRORLIST && \
+     cp $CONFIG/mirrors/Ecuador-mirrorlist $MIRRORLIST
+# 2.2 Actualizar base de datos
+sudo pacman -Syu
 
-# Update Ecuadorian mirorlist
-sudo rm $MIRRORLIST
-sudo cp \
-    $CONFIG/mirrors/Ecuador-mirrorlist \
-    $MIRRORLIST
-sudo pacman -Syu --noconfirm
-
-# Install wget and zsh
-sudo pacman -S --noconfirm \
-        alacritty neovim wget zsh \
-        noto-fonts noto-fonts-emoji \
-        ttf-dejavu \
-        otf-latin-modern otf-latinmodern-math
-        
-sudo pacman -S --noconfirm fd emacs ripgrep \
-        obs-studio vifm vlc virtualbox
-
-## AUR fonts
-# git clone \
-#     https://aur.archlinux.org/font-symbola.git \
-#     $HOME/Repositories/font-symbola
-
-# (cd $HOME/Repositories/font-symbola && \
-#     makepkg -sic --noconfirm)
-
-fc-cache -vf
-
-# Change default user shell to zsh
-sudo usermod -s /bin/zsh cesar
-
-# Install Oh-My-Zsh and Customize configuration file
-ZSH=$CONFIG/zsh/.oh-my-zsh sh -c \
-    "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
-
-# Copy dot files
-cp $CONFIG/zsh/.zshenv $HOME/
-
-# Install Window Manager and Display Manager
-sudo pacman -S --noconfirm xorg
-
-# Install without conflicts 
-sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter \
+# 3. Instalar Window Manager
+# 3.1 Instalar los programas
+sudo pacman -S --noconfirm xorg \ 
+                lightdm lightdm-gtk-greeter \
                 xmonad xmonad-contrib \
                 xmobar dmenu \
                 picom nitrogen \
-
-# Enable and Start the greeter
+                alacritty neovim wget zsh
+# 3.2 Establecer zsh como shell de preferencia
+sudo usermod -s /bin/zsh cesar
+# 3.3 Copiar configuraciones personales
+cp -r $REPO/dotfiles/.config/* $CONFIG
+cp $REPO/dotfiles/.xprofile $HOME
+cp $CONFIG/zsh/.zshenv $HOME
+# 3.4 Iniciar sesion
 sudo systemctl enable lightdm
 xmonad --recompile
 sudo systemctl start lightdm
