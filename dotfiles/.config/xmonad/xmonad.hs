@@ -45,12 +45,12 @@ myTerminal = "alacritty"
 myBrowser = "brave-browser"
 myIDE = "emacsclient -c -a 'emacs'"
 myRecorder = "obs"
-myVirtManager = "Virtual Box"
+myVirtManager = "VirtualBox"
 myBorderWidth = 2
 myGap = 7
 myNormColor = "#282c34"
 myFocusColor = "#46d9ff"
-myWorkspaces = [" term "," ide "," docs "," obs "," vbox "," video "]
+myWorkspaces = [" term "," ide "," docs "," obs "," vbox "," video "," nitr "," web "," etc "]
 
 -- Colors -------------------------------------------------------
 
@@ -116,19 +116,31 @@ myLayoutHook   = mySpacing myGap
 
 myLogHook bar  = dynamicLogWithPP  $ xmobarPP {
                  ppOutput          = hPutStrLn bar
-               , ppSep             = "<fc=#666666> <fn=1>|</fn> </fc>"
+               , ppSep             = white " ♣ "
                , ppCurrent         = wrap (white "[") (white "]")
                , ppHidden          = white . wrap " " ""
                , ppHiddenNoWindows = grey . wrap " " ""
                , ppUrgent          = red . wrap (yellow "!") (yellow "!")
-               , ppOrder           = \(ws:l:t) -> [ws,l]++[t]
+               , ppOrder           = \(ws:l:t) -> [ws,l]++t
                }
 
 myManageHook   = composeAll [
-               , className    =? "Emacs"       --> doShift (myWorkspaces !! 2)
-               , className    =? "obs"         --> doShift (myWorkspaces !! 3)
-               , className    =? "Virtual Box" --> doShift (myWorkspaces !! 4)
-               , className    =? "VLC"         --> doShift (myWorkspaces !! 5)
+              -- System Boxes
+                 className    =? "confirm"            --> doFloat
+               , className    =? "file_progress"      --> doFloat
+               , className    =? "dialog"             --> doFloat
+               , className    =? "download"           --> doFloat
+               , className    =? "error"              --> doFloat
+               , className    =? "notification"       --> doFloat
+               , className    =? "splash"             --> doFloat
+               , className    =? "toolbar"            --> doFloat
+               -- Applications
+               , className    =? "Emacs"              --> doShift (myWorkspaces !! 1)
+               , className    =? "obs"                --> doShift (myWorkspaces !! 3)
+               , className    =? "VirtualBox Manager" --> doShift (myWorkspaces !! 4)
+               , className    =? "vlc"                --> doShift (myWorkspaces !! 5)
+               , className    =? "nitrogen"           --> doShift (myWorkspaces !! 6)
+               , isFullScreen                         --> doFullFloat
                ]
 
 ----------------------------------------------------------------
@@ -154,6 +166,6 @@ main = do
          , startupHook        = myStartupHook
          , terminal           = myTerminal
          , workspaces         = myWorkspaces
-         , normBorderColor    = myNormColor
+         , normalBorderColor    = myNormColor
          , focusedBorderColor = myFocusColor
          } `additionalKeysP` myKeybindings
