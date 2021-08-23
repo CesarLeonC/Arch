@@ -33,12 +33,11 @@ sleep 3
 sudo rm $MIRRORLIST && \
      sudo cp $CONFIG/mirrors/Ecuador-mirrorlist $MIRRORLIST
 # 2.2 Actualizar base de datos
-sudo pacman -Syu
+sudo pacman -Sy pacman-mirrorlist
 
 # 3. Instalar Window Manager
 # 3.1 Instalar los programas
-sudo pacman -S --noconfirm xorg \ 
-                lightdm lightdm-gtk-greeter \
+sudo pacman -S --noconfirm xorg lightdm lightdm-gtk-greeter \
                 xmonad xmonad-contrib \
                 xmobar dmenu \
                 picom nitrogen \
