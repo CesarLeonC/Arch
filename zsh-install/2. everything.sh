@@ -73,7 +73,6 @@ ZSH=$CONFIG/zsh/.oh-my-zsh sh -c \
 # 4.2 Copiar configuraciones personales 
 cp $REPO/dotfiles/.xprofile $HOME
 
-
 # 4.3 Iniciar sesion
 sudo systemctl enable lightdm
 xmonad --recompile
