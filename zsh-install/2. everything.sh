@@ -48,33 +48,32 @@ sudo usermod -s /bin/zsh cesar
 echo "Shell cambiado correctamente"
 sleep 3
 
+# 4. Instalar IDE y suplementos
+# 4.1 Instalar todo
+sudo pacman -S --noconfirm fd ripgrep emacs \
+            obs-studio vifm vlc virtualbox
+
+# 4.2 Instalar Doom Emacs
+git clone \
+    https://github.com/hlissner/doom-emacs \
+    $HOME/.emacs.d
+
+mkdir -p $DOOM_DIR
+cp $EMACS_DIR/init.example.el $DOOM_DIR/init.el
+cp $EMACS_DIR/core/templates/config.example.el $DOOM_DIR/config.el
+cp $EMACS_DIR/core/templates/packages.example.el $DOOM_DIR/packages.el
+
+doom sync
+domm install
+
 # 4. Instalar accesorios
 # 4.1 Instalar Oh-My-Zsh
 ZSH=$CONFIG/zsh/.oh-my-zsh sh -c \
     "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
 # 4.2 Copiar configuraciones personales 
 cp $REPO/dotfiles/.xprofile $HOME
+
+
 # 4.3 Iniciar sesion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 sudo systemctl enable lightdm
 xmonad --recompile

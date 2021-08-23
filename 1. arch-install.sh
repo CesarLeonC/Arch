@@ -41,7 +41,7 @@ pacinstall --yolo grub networkmanager network-manager-applet dialog wpa_supplica
                   openssh rsync acpi acpi_call tlp virt-manager dnsmasq 
                   qemu qemu-arch-extra edk2-ovmf bridge-utils vde2 openbsd-netcat 
                   iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid 
-                  os-prober ntfs-3g terminus-font os-prober broadcom-wl zsh
+                  os-prober ntfs-3g terminus-font os-prober broadcom-wl zsh neovim
 
 # Instalar grub dentro de BIOS/MBR
 grub-install --target=i386-pc /dev/sda
