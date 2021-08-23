@@ -25,7 +25,8 @@ mkdir -p \
     $HOME/opt $HOME/.cache
 echo "Carpetas de configuracion creadas!!"
 cp -r $REPO/dotfiles/.config/* $CONFIG
-echo "Archivos .dot copiados!!\nEsperando actualizacion total"
+echo "Archivos .dot copiados!!"
+echo "Esperando actualizacion total"
 sleep 3
 
 # 2. Actualizar sistema
@@ -33,7 +34,7 @@ sleep 3
 sudo rm $MIRRORLIST && \
      sudo cp $CONFIG/mirrors/Ecuador-mirrorlist $MIRRORLIST
 # 2.2 Actualizar base de datos
-sudo pacman -Sy pacman-mirrorlist
+sudo pacman -Sy --noconfirm pacman-mirrorlist
 
 # 3. Instalar Window Manager
 # 3.1 Instalar los programas
