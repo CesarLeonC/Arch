@@ -9,8 +9,8 @@
 #################################################
 
 # 0. Definir las variables de interes
-REPO="$HOME/Repositories/cesarleonc/arch/"
-CONFIG="$HOME/.config/"
+REPO="$HOME/Repositories/cesarleonc/arch"
+CONFIG="$HOME/.config"
 SHARE="$CONFIG/share"
 MIRRORLIST="/etc/pacman.d/mirrorlist"
 
