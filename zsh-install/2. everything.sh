@@ -11,7 +11,7 @@
 # 0. Definir las variables de interes
 REPO="$HOME/Repositories/cesarleonc/arch"
 CONFIG="$HOME/.config"
-SHARE="$CONFIG/share"
+SHARE="$HOME/.local/share"
 MIRRORLIST="/etc/pacman.d/mirrorlist"
 
 # 1. Crear carpetas de almacenamiento
