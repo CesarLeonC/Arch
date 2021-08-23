@@ -27,4 +27,4 @@ export UPDATE_ZSH_DAYS=13
 ZSH_THEME="rkj-repos"
 DISABLE_UPDATE_PROMPT="true"
 plugins=(git github)
-source $ZSH/oh-my-zsh.sh
+source $OH_MY_ZSHDIR/oh-my-zsh.sh
