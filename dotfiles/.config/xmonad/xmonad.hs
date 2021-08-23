@@ -116,7 +116,7 @@ myLayoutHook   = mySpacing myGap
 
 myLogHook bar  = dynamicLogWithPP  $ xmobarPP {
                  ppOutput          = hPutStrLn bar
-               , ppSep             = white " ♣ "
+               , ppSep             = white " || "
                , ppCurrent         = wrap (white "[") (white "]")
                , ppHidden          = white . wrap " " ""
                , ppHiddenNoWindows = grey . wrap " " ""
@@ -166,6 +166,6 @@ main = do
          , startupHook        = myStartupHook
          , terminal           = myTerminal
          , workspaces         = myWorkspaces
-         , normalBorderColor    = myNormColor
+         , normalBorderColor  = myNormColor
          , focusedBorderColor = myFocusColor
          } `additionalKeysP` myKeybindings
