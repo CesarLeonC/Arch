@@ -34,13 +34,13 @@ pacman -S --noconfirm pacutils base-devel dnsutils
 echo root:cesar.leon.14 | chpasswd
 
 # Instalar todo
-pacinstall --yolo grub networkmanager network-manager-applet dialog wpa_supplicant 
-                  mtools dosfstools reflector linux-headers avahi 
-                  xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils 
-                  bluez bluez-utils cups hplip alsa-utils pulseaudio bash-completion 
-                  openssh rsync acpi acpi_call tlp virt-manager dnsmasq 
-                  qemu qemu-arch-extra edk2-ovmf bridge-utils vde2 openbsd-netcat 
-                  iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid 
+pacinstall --yolo grub networkmanager network-manager-applet dialog wpa_supplicant \
+                  mtools dosfstools reflector linux-headers avahi \
+                  xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils \
+                  bluez bluez-utils cups hplip alsa-utils pulseaudio bash-completion \
+                  openssh rsync acpi acpi_call tlp virt-manager dnsmasq \
+                  qemu qemu-arch-extra edk2-ovmf bridge-utils vde2 openbsd-netcat \
+                  iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid \
                   os-prober ntfs-3g terminus-font os-prober broadcom-wl zsh neovim
 
 # Instalar grub dentro de BIOS/MBR
