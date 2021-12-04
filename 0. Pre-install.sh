@@ -23,7 +23,7 @@ mount /dev/sda1 /mnt/boot/efi
 lsblk
 
 # Instalar los paquetes basicos
-pacstrap /mnt base linux-zen linux-zen-headers base-devel git neovim alacritty
+pacstrap /mnt base linux-zen linux-zen-headers base-devel git neovim alacritty zsh
 
 # Generar el filesystem tab
 genfstab -U /mnt >> /mnt/etc/fstab
