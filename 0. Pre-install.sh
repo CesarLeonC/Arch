@@ -24,3 +24,9 @@ lsblk
 
 # Instalar los paquetes basicos
 pacstrap /mnt base linux-zen linux-zen-headers base-devel git neovim alacritty
+
+# Generar el filesystem tab
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# Cambiar el root
+arch-chroot /mnt
