@@ -22,8 +22,8 @@ locale-gen
 # Definir el lenguaje predeterminado
 echo "LANG=en_us.UTF-8" >> /etc/locale.conf
 # Definir el nombre de la maquina
-echo "cesarleonc" >> /etc/hostname
+echo "archlinux" >> /etc/hostname
 # Crear los ip locales
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1 localhost" >> /etc/hosts
-echo "127.0.1.1 cesarleonc.localdomain cesarleonc" >> /etc/hosts
+echo "127.0.1.1 cesarleonc.localdomain archlinux" >> /etc/hosts
