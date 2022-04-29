@@ -8,7 +8,7 @@
 #     Description: INSTALL XMONAD WINDOW MANAGER
 #################################################
 
-REPO="$HOME/Repositories/cesarleonc/Arch/"
+REPO="$HOME/Repositories/cesarleonc/arch/"
 CONFIG="$HOME/.config/"
 
 # Update XDG config directory, create XDG directories and copy files
