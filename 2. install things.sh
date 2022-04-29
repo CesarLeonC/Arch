@@ -1,7 +1,7 @@
 pacman -S --noconfirm pacutils base-devel dnsutils
 
 # Cambiar el pass de root
-echo root:cesar.leon.14 | chpasswd
+echo root:invitado | chpasswd
 
 # Instalar todo
 pacinstall --yolo grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant \
@@ -33,11 +33,11 @@ systemctl enable firewalld
 systemctl enable acpid
 
 # Crear usuario local
-useradd -mG wheel cesar
-echo cesar:cesar.leon.14 | chpasswd
-usermod -aG libvirt cesar
-usermod -s /bin/zsh cesar
+useradd -mG wheel invitado
+echo invitado:invitado | chpasswd
+usermod -aG libvirt invitado
+usermod -s /bin/zsh invitado
 
-echo "cesar ALL=(ALL) ALL" >> /etc/sudoers.d/cesar
+echo "invitado ALL=(ALL) ALL" >> /etc/sudoers.d/invitado
 
 echo "Listo, proceso finalizado!"
